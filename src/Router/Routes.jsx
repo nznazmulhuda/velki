@@ -4,6 +4,7 @@ import {
     AccountCreate,
     AgentNewNumber,
     AgentVerify,
+    AutoDeposit,
     Community,
     CustomerService,
     ErrorPage,
@@ -38,6 +39,10 @@ export const Routes = createBrowserRouter([
             {
                 path: "/agentVerify",
                 element: <AgentVerify />,
+            },
+            {
+                path: "/autoDeposit",
+                element: <AutoDeposit />,
             },
             {
                 path: "/community",

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../../assets/Home/HomeLogo.jpg";
 
 function MidNavbar() {
@@ -20,9 +21,9 @@ function MidNavbar() {
     return (
         <div className="max-w-[70%] mx-auto py-6">
             <div className="flex items-center justify-between">
-                <div>
+                <Link to={"/"}>
                     <img src={Logo} alt="Logo - Velki" />
-                </div>
+                </Link>
 
                 <div className="bg-[#E5E5E5] flex flex-col items-center justify-center p-6 rounded">
                     <h1 className="text-3xl font-bold">{time.getDate()}</h1>

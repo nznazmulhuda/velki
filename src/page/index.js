@@ -12,11 +12,13 @@ import ProxyLink from "./ProxyLink/ProxyLink";
 import SiteAdmin from "./SiteAdmin/SiteAdmin";
 import SubAdmin from "./SubAdmin/SubAdmin";
 import SuperAgent from "./SuperAgent/SuperAgent";
+import AutoDeposit from "./AutoDeposit/AutoDeposit";
 
 export {
     AccountCreate,
     AgentNewNumber,
     AgentVerify,
+    AutoDeposit,
     Community,
     CustomerService,
     ErrorPage,
