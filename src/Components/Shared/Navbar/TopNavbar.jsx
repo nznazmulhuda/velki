@@ -10,7 +10,7 @@ function TopNavbar() {
                         className={({ isActive }) =>
                             isActive
                                 ? "bg-white border-b border-b-white py-4 px-10 text-[#333] font-bold text-xs"
-                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all ease-in font-bold text-xs"
+                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all border-b-0 ease-in font-bold text-xs"
                         }
                     >
                         <button>ভেল্কি</button>
@@ -21,7 +21,7 @@ function TopNavbar() {
                         className={({ isActive }) =>
                             isActive
                                 ? "bg-white border-b border-b-white py-4 px-10 text-[#333] font-bold text-xs"
-                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all ease-in font-bold text-xs"
+                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all border-b-0 ease-in font-bold text-xs"
                         }
                     >
                         <button>ভেল্কি কমিউনিটি</button>
@@ -32,7 +32,7 @@ function TopNavbar() {
                         className={({ isActive }) =>
                             isActive
                                 ? "bg-white border-b border-b-white py-4 px-10 text-[#333] font-bold text-xs"
-                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all ease-in font-bold text-xs"
+                                : "bg-transparent border border-t-0 py-4 px-10 hover:bg-black hover:text-white transition-all border-b-0 ease-in font-bold text-xs"
                         }
                     >
                         <button>ভেল্কি ফোরাম</button>
@@ -49,7 +49,7 @@ function TopNavbar() {
                 </div>
             </div>
 
-            <hr className="-mt-[3px] p-0 h-[2px] bg-[#E5E5E5]" />
+            <hr className="-mt-[2px] p-0 h-[1px] bg-[#E5E5E5]" />
         </>
     );
 }
