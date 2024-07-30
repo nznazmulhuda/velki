@@ -56,7 +56,7 @@ export const Routes = createBrowserRouter([
                 element: <MasterAgent />,
             },
             {
-                path: "phoneNumberSearch",
+                path: "/phoneNumberSearch",
                 element: <PhoneNumSearch />,
             },
             {
@@ -68,11 +68,11 @@ export const Routes = createBrowserRouter([
                 element: <SiteAdmin />,
             },
             {
-                path: "subAdmin",
+                path: "/subAdmin",
                 element: <SubAdmin />,
             },
             {
-                path: "superAgent",
+                path: "/superAgent",
                 element: <SuperAgent />,
             },
         ],
