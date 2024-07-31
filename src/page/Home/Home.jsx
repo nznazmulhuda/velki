@@ -3,9 +3,15 @@ import Spotlight from "../../Components/Home/Spotlight";
 import AgentCard from "../../Components/Home/AgentCard";
 import Divider from "../../Components/Shared/Divider/Divider";
 import customerPic from "../../assets/agent/customerService.jpg";
-import master from "../../assets/agent/master.jpg"
+import master from "../../assets/agent/master.jpg";
 import superPic from "../../assets/agent/super.jpg";
 import MoreNews from "../../Components/Home/MoreNews";
+import NewsCard from "../../Components/Home/NewsCard";
+import SubAdmin from "../../assets/agent/subAdmin.jpg";
+import AgentList from "../../assets/agent/agentList.jpg";
+import AgentKoto from "../../assets/agent/agentKoto.jpg";
+import AddAccount from "../../assets/agent/addaccount.jpg"
+import SectionTwo from "../../Components/Home/SectionTwo";
 
 function Home() {
     return (
@@ -83,13 +89,58 @@ function Home() {
                 </div>
 
                 {/* right content */}
-                <div className="w-[35%]">
+                <div className="w-full md:w-[35%] mt-5 md:mt-0">
                     {/* more news */}
                     <div>
+                        {/* More news title */}
                         <MoreNews />
+
+                        {/* Cards section */}
+                        <NewsCard
+                            pic={SubAdmin}
+                            time={"02 January 2024"}
+                            agentPath={"/"}
+                            listName={"সাব এডমিন লিষ্টঃ"}
+                            listPath={"/subAdmin"}
+                        />
+
+                        <NewsCard
+                            pic={AgentKoto}
+                            time={"31 August 2021"}
+                            agentPath={"/"}
+                            listName={"এজেন্ট কয় প্রকারঃ"}
+                            listPath={"/"}
+                        />
+
+                        <NewsCard
+                            pic={AgentList}
+                            time={"31 August 2021"}
+                            agentPath={"/"}
+                            listName={"এজেন্ট লিস্টঃ"}
+                            listPath={"/"}
+                        />
+
+                        <NewsCard
+                            pic={AgentKoto}
+                            time={"02 January 2024"}
+                            agentPath={"/"}
+                            listName={"Agent List"}
+                            listPath={"/agentList"}
+                        />
+                    </div>
+
+                    <Divider />
+
+                    <div>
+                        <img src={AddAccount} className="w-full p-4" alt="" />
                     </div>
                 </div>
             </section>
+
+            <hr />
+            
+            {/* section two */}
+            <SectionTwo />
         </div>
     );
 }
