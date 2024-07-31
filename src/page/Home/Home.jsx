@@ -12,6 +12,7 @@ import AgentList from "../../assets/agent/agentList.jpg";
 import AgentKoto from "../../assets/agent/agentKoto.jpg";
 import AddAccount from "../../assets/agent/addaccount.jpg"
 import SectionTwo from "../../Components/Home/SectionTwo";
+import SectionThree from "../../Components/Home/SectionThree";
 
 function Home() {
     return (
@@ -141,6 +142,9 @@ function Home() {
             
             {/* section two */}
             <SectionTwo />
+
+            {/* section three */}
+            <SectionThree />
         </div>
     );
 }

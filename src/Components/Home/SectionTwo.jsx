@@ -15,7 +15,7 @@ function SectionTwo() {
             {/* master agent list */}
             <div className="p-4 bg-[#E5E5E5] ">
                 <Link>
-                    <button className="border border-[#5f5f5f] rounded py-1 px-2 flex items-center hover:bg-[#C00] transition-all ease-in hover:text-white font-semibold gap-1">
+                    <button className="rounded py-1 px-2 flex items-center bg-[#C00] transition-all ease-in text-white font-semibold gap-1">
                         Master agent <FaArrowRight />
                     </button>
                 </Link>
@@ -59,6 +59,8 @@ function SectionTwo() {
             </div>
 
             <hr />
+
+            
         </div>
     );
 }
