@@ -21,7 +21,7 @@ function Navbar() {
             </div>
 
             {/* Responsive navbar */}
-            <div className="flex md:hidden flex-col mb-5 sticky top-0 bg-white">
+            <div className="flex md:hidden flex-col mb-5 relative top-0 bg-white">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <button
