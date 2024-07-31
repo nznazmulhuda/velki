@@ -44,7 +44,7 @@ function TopNavbar() {
                         to={"/CustomerService"}
                         className={"text-[#c00] p-4 hover:bg-[#E5E5E5]"}
                     >
-                        <button>Customer Service</button>
+                        <button>কাস্টমার সার্ভিস</button>
                     </NavLink>
                 </div>
             </div>
