@@ -12,7 +12,7 @@ function SubAdmin() {
         e.target.reset();
     };
     return (
-        <div>
+        <div className="p-4">
             {/* title */}
             <h1 className="text-xl md:text-2xl text-center">
                 এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
