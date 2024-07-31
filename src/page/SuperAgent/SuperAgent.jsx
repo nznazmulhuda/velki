@@ -70,7 +70,7 @@ function SuperAgent() {
             <hr className="my-6" />
 
             {/* banner */}
-            <div className="my-10 relative">
+            <div className="my-10 relative -z-20">
                 <img src={superPic} className="w-full" alt="" />
                 <button className="border border-gray-500 bg-white px-2 hover:bg-[#c00] hover:text-white transition-all ease-in absolute top-0 left-0 text-sm hover:border-transparent">
                     Agent
