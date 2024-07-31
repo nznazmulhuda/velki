@@ -52,7 +52,7 @@ function DownNavbar() {
     ];
 
     return (
-        <div>
+        <div className="mb-5">
             <hr className="bg-[#c00] h-[2px] mt-[5px] p-0 z-20 relative" />
 
             <div className="w-[70%] mx-auto flex items-center">

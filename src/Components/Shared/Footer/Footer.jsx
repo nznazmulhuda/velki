@@ -3,7 +3,7 @@ import { FaCaretRight } from "react-icons/fa6";
 
 function Footer() {
     return (
-        <div className="bg-[#111] py-10 w-full md:max-w-[70%] mx-auto mt-10 rounded">
+        <div className="bg-[#111] py-10 w-full md:max-w-[70%] mx-auto mt-5 rounded">
             <div className="hidden md:flex">
                 <div className="relative">
                     <span className="relative inline-block">
