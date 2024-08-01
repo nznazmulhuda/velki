@@ -5,8 +5,10 @@ function Links({ link, path }) {
     return (
         <NavLink
             to={path}
-            className={
-                "text-black bg-transparent hover:text-black hover:bg-gray-100 px-2 py-2"
+            className={({ isActive }) =>
+                isActive
+                    ? "text-white bg-[#C00] p-2"
+                    : "text-black bg-transparent hover:text-black hover:bg-gray-100 px-2 py-2"
             }
         >
             <button className="w-[89%] text-xs">{link}</button>

@@ -1,7 +1,9 @@
+import PageStillWorking from "../Lottie/PageStillWorking/PageStillWorking";
+
 function Forum() {
     return (
         <div>
-            <h1>Forum</h1>
+            <PageStillWorking pageName="Forum" />
         </div>
     );
 }

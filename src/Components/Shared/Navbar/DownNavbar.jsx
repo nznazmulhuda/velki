@@ -79,7 +79,10 @@ function DownNavbar() {
                 </NavLink>
 
                 <button
-                    onClick={() => setIsCommon(!isCommon)}
+                    onClick={() => {
+                        setIsCommon(!isCommon);
+                        setIsCommon2(false);
+                    }}
                     className="bg-transparent text-black transition-all ease-in font-medium text-lg border-x border-[#E5E5E5] py-2 px-4 hover:bg-black hover:text-white flex items-center relative"
                 >
                     <h1 className="w-full">সাধারন প্রশ্ন উত্তর</h1>
@@ -100,7 +103,10 @@ function DownNavbar() {
                 </button>
 
                 <button
-                    onClick={() => setIsCommon2(!isCommon2)}
+                    onClick={() => {
+                        setIsCommon2(!isCommon2);
+                        setIsCommon(false);
+                    }}
                     className="bg-transparent text-black transition-all ease-in font-medium text-lg border-x border-[#E5E5E5] py-2 px-4 hover:bg-black hover:text-white flex items-center relative"
                 >
                     এজেন্ট লিষ্ট

@@ -1,7 +1,9 @@
+import PageStillWorking from "../Lottie/PageStillWorking/PageStillWorking";
+
 function Community() {
     return (
         <div>
-            <h1>Community</h1>
+            <PageStillWorking pageName="Comunity" />
         </div>
     );
 }

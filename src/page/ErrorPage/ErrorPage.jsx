@@ -1,7 +1,9 @@
+import Error from "../Lottie/Error/Error";
+
 function ErrorPage() {
     return (
         <div>
-            <h1>ErrorPage</h1>
+            <Error />
         </div>
     );
 }

@@ -13,7 +13,7 @@ function AgentCard({ pic, path, title, heading, des, agentPath, readMore }) {
                 </Link>
             </div>
 
-            <Link to={path} className="text-lg text-gray-900 font-bold mb-4">
+            <Link to={path} className="text-lg text-gray-900 font-bold mb-4 hover:text-[#C00] transition-all ease-in">
                 {title}
             </Link>
 
