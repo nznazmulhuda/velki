@@ -3,6 +3,7 @@ import SiteAdmin from "../../Components/AddUser/SiteAdmin";
 import SubAdmin from "../../Components/AddUser/SubAdmin";
 import SuperAgent from "../../Components/AddUser/SuperAgent";
 import MasterAgent from "../../Components/AddUser/MasterAgent";
+import Customer from "../../Components/AddUser/Customer";
 
 function AddUser() {
 	const [addRole, setAddRole] = useState("site_admin");
@@ -28,6 +29,9 @@ function AddUser() {
 						<option value="sub_admin">Sub Admin</option>
 						<option value="super_agent">Super Agent</option>
 						<option value="master_agent">Master Agent</option>
+						<option value="customer_service">
+							Customer Service
+						</option>
 					</select>
 				</form>
 
@@ -39,7 +43,9 @@ function AddUser() {
 							? "Add New Sub Admin"
 							: addRole === "super_agent"
 							? "Add New Super Agent"
-							: "Add New Master Agent"}
+							: addRole === "master_agent"
+							? "Add New Master Agent"
+							: "Add Customer Service"}
 					</h1>
 				</div>
 
@@ -50,8 +56,10 @@ function AddUser() {
 					<SubAdmin />
 				) : addRole === "super_agent" ? (
 					<SuperAgent />
-				) : (
+				) : addRole === "master_agent" ? (
 					<MasterAgent />
+				) : (
+					<Customer />
 				)}
 			</div>
 		</>

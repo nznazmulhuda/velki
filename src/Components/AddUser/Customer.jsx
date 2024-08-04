@@ -1,21 +1,21 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-function MasterAgent() {
+function Customer() {
 	// register new user
 	const register = (e) => {
 		e.preventDefault();
 		const form = e.target;
-		const super_agent_id = form.super_agent_id.value;
-		const master_agent_id = form.master_agent_id.value;
+		const customer_service_id = form.customer_service_id.value;
+		const type = form.type.value;
 		const wp_number = form.wp_number.value;
 		const phn_number = form.phn_number.value;
 		const date = new Date().toLocaleString();
-		const role = "master_agent";
+		const role = "customer_service";
 
-		const masterAgent = {
-			super_agent_id,
-			master_agent_id,
+		const customer = {
+			customer_service_id,
+			type,
 			role,
 			wp_number,
 			phn_number,
@@ -24,7 +24,7 @@ function MasterAgent() {
 
 		// api call
 		axios
-			.post("/add_master_agent", masterAgent)
+			.post("/add_customer", customer)
 			.then((res) => {
 				if (res.data.insertedId) {
 					toast.success("New admin added successfully!");
@@ -43,26 +43,26 @@ function MasterAgent() {
 					onSubmit={register}
 					className="border p-6 rounded-md flex flex-col space-y-4"
 				>
-					{/* Sub_admin id*/}
+					{/* agent id */}
 					<div className="flex flex-col w-full space-y-1">
-						<label>Super agent Id:</label>
+						<label>Customer Service Id:</label>
 						<input
 							required
 							type="number"
-							name="super_agent_id"
-							placeholder="Super agent id number"
+							name="customer_service_id"
+							placeholder="Customer service id number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 						/>
 					</div>
 
-					{/* agent id */}
+					{/* type */}
 					<div className="flex flex-col w-full space-y-1">
-						<label>New Master Agent Id:</label>
+						<label>Type:</label>
 						<input
 							required
-							type="number"
-							name="master_agent_id"
-							placeholder="Master agent id number"
+							type="text"
+							name="type"
+							placeholder="Customer service type"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 						/>
 					</div>
@@ -95,7 +95,7 @@ function MasterAgent() {
 						type="submit"
 						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
 					>
-						Add Super Agent
+						Add Customer Service
 					</button>
 				</form>
 			</div>
@@ -103,4 +103,4 @@ function MasterAgent() {
 	);
 }
 
-export default MasterAgent;
+export default Customer;
