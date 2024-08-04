@@ -10,6 +10,7 @@ function SiteAdmin() {
 		const password = form.password.value;
 		const username = form.username.value;
 		const confirmPassword = form.confirmPassword.value;
+		const sub_admins = [];
 
 		if (password === confirmPassword) {
 			const date = new Date().toLocaleString();
@@ -18,6 +19,7 @@ function SiteAdmin() {
 				email,
 				password,
 				date,
+				sub_admins,
 				role: "admin",
 			};
 

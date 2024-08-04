@@ -15,6 +15,7 @@ function SubAdmin() {
 		const date = new Date().toLocaleString();
 		const under_id = user._id;
 		const role = "sub_admin";
+		const super_agents = [];
 
 		const subUser = {
 			agent_id,
@@ -23,6 +24,7 @@ function SubAdmin() {
 			phn_number,
 			date,
 			under_id,
+			super_agents,
 		};
 
 		// api call
