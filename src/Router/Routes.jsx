@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import { Dashboard } from "../Admin";
+import { AddUser, Dashboard } from "../Admin";
 import {
 	AccountCreate,
 	AgentNewNumber,
@@ -92,6 +92,14 @@ export const Routes = createBrowserRouter([
 				element: (
 					<PrivateRoute>
 						<Dashboard />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/addUser",
+				element: (
+					<PrivateRoute>
+						<AddUser />
 					</PrivateRoute>
 				),
 			},
