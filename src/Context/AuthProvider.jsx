@@ -1,74 +1,42 @@
 import PropTypes from "prop-types";
-import { auth } from "../Firebase/Firebase.config";
-import { createContext, useEffect, useState } from "react";
-import {
-    createUserWithEmailAndPassword,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut,
-    updatePassword,
-} from "firebase/auth";
+import { createContext, useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState("Nahid");
-    const [isLoading, setIsLoading] = useState(true);
+	const [user, setUser] = useState(
+		JSON.parse(localStorage.getItem("user")) || null,
+	);
 
-    // login with email and password
-    const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
-    };
+	// login with email and password
+	const login = (emailOrUsername, password) => {
+		axios
+			.get(
+				`/login?emailOrUsername=${emailOrUsername}&password=${password}`,
+			)
+			.then((res) => {
+				toast.success("Login Success!");
+				setUser(res.data);
+				localStorage.setItem("user", JSON.stringify(res.data));
+			})
+			.catch((e) => toast.error(e.response.data));
+	};
 
-    // register with email and password
-    const register = (email, password) => {
-        return createUserWithEmailAndPassword(email, password);
-    };
+	// all passed data in here
+	const authInfo = {
+		login,
+		user,
+	};
 
-    // password change
-    const passwordChange = (newPassword) => {
-        return updatePassword(auth.currentUser, newPassword);
-    };
-
-    // logout
-    const logout = () => {
-        return signOut(auth);
-    };
-
-    // save the login or logout state
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setIsLoading(false);
-            } else {
-                setUser("");
-                setIsLoading(false);
-            }
-        });
-
-        return () => {
-            unSubscribe();
-        };
-    });
-
-    // all passed data in here
-    const authInfo = {
-        user,
-        isLoading,
-        login,
-        register,
-        logout,
-        passwordChange,
-    };
-
-    return (
-        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-    );
+	return (
+		<AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+	);
 };
 
 AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default AuthProvider;
