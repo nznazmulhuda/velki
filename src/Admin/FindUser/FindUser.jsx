@@ -318,15 +318,16 @@ function FindUser() {
 																? "সুপার"
 																: agent?.role ===
 																  "sub_admin"
-																? "সাব এডমিন"
+																? "সাব"
 																: "মাষ্টার"}
 														</td>
 
-														<td className="flex items-center justify-center mt-1">
+														<td className="relative">
 															<a
 																href={`https://wa.me/${agent?.wp_number}`}
 																target="_blank"
 																rel="noopener noreferrer"
+																className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 															>
 																<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
 															</a>
@@ -361,27 +362,50 @@ function FindUser() {
 														key={id}
 														className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
 													>
-														<td>2025</td>
-														<td>সুপার</td>
-														<td className="flex items-center justify-center mt-1">
+														<td>
+															{addRole ===
+															"site_admin"
+																? agent?.agent_id
+																: addRole ===
+																  "sub_admin"
+																? agent?.super_agent_id
+																: agent?.master_agent_id}
+														</td>
+
+														<td>
+															{agent?.role ===
+															"super_agent"
+																? "সুপার"
+																: agent?.role ===
+																  "sub_admin"
+																? "সাব"
+																: "মাষ্টার"}
+														</td>
+
+														<td className="relative">
 															<a
-																href="http://wa.me/"
+																href={`https://wa.me/${agent?.wp_number}`}
 																target="_blank"
 																rel="noopener noreferrer"
+																className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 															>
 																<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
 															</a>
 														</td>
+
 														<td>
 															<a
-																href="http://wa.me/"
+																href={`https://wa.me/${agent?.phn_number}`}
 																target="_blank"
 																rel="noopener noreferrer"
 																className="text-[#C00] hover:underline"
 															>
-																+85581749353
+																{
+																	agent?.phn_number
+																}
 															</a>
 														</td>
+
 														<td>
 															<a
 																href="http://wa.me/"
