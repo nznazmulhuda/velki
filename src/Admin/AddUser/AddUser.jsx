@@ -49,7 +49,7 @@ function AddUser() {
 					</h1>
 				</div>
 
-				{/* for site admin */}
+				{/* form */}
 				{addRole === "site_admin" ? (
 					<SiteAdmin />
 				) : addRole === "sub_admin" ? (

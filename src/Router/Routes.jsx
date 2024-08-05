@@ -20,6 +20,7 @@ import {
 	SuperAgent,
 } from "../page";
 import PrivateRoute from "./PrivateRoute";
+import FindUser from "../Admin/FindUser/FindUser";
 
 export const Routes = createBrowserRouter([
 	{
@@ -100,6 +101,14 @@ export const Routes = createBrowserRouter([
 				element: (
 					<PrivateRoute>
 						<AddUser />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/findUser",
+				element: (
+					<PrivateRoute>
+						<FindUser />
 					</PrivateRoute>
 				),
 			},
