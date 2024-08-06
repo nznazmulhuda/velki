@@ -12,6 +12,10 @@ function MasterAgent() {
 		const phn_number = form.phn_number.value;
 		const date = new Date().toLocaleString();
 		const role = "master_agent";
+		const old_under_id = "";
+		const old_agent_id = "";
+		const old_wp_number = "";
+		const old_phn_number = "";
 
 		const masterAgent = {
 			super_agent_id,
@@ -20,6 +24,10 @@ function MasterAgent() {
 			wp_number,
 			phn_number,
 			date,
+			old_under_id,
+			old_agent_id,
+			old_wp_number,
+			old_phn_number,
 		};
 
 		// api call

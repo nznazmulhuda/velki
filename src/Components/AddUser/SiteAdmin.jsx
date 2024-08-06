@@ -14,6 +14,7 @@ function SiteAdmin() {
 
 		if (password === confirmPassword) {
 			const date = new Date().toLocaleString();
+			
 			const user = {
 				username,
 				email,

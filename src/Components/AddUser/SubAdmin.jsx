@@ -16,6 +16,9 @@ function SubAdmin() {
 		const under_id = user._id;
 		const role = "sub_admin";
 		const super_agents = [];
+		const old_agent_id = "";
+		const old_wp_number = "";
+		const old_phn_number = "";
 
 		const subUser = {
 			agent_id,
@@ -25,6 +28,9 @@ function SubAdmin() {
 			date,
 			under_id,
 			super_agents,
+			old_agent_id,
+			old_wp_number,
+			old_phn_number,
 		};
 
 		// api call

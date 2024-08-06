@@ -13,6 +13,10 @@ function SuperAgent() {
 		const date = new Date().toLocaleString();
 		const master_agents = [];
 		const role = "super_agent";
+		const old_under_id = "";
+		const old_agent_id = "";
+		const old_wp_number = "";
+		const old_phn_number = "";
 
 		const superAgent = {
 			sub_admin_id,
@@ -22,6 +26,10 @@ function SuperAgent() {
 			phn_number,
 			master_agents,
 			date,
+			old_under_id,
+			old_agent_id,
+			old_wp_number,
+			old_phn_number,
 		};
 
 		// api call

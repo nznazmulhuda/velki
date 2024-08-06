@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import { AddUser, Dashboard } from "../Admin";
+import { AddUser, Dashboard, FindUser, UpdateUser } from "../Admin";
 import {
 	AccountCreate,
 	AgentNewNumber,
@@ -20,7 +20,6 @@ import {
 	SuperAgent,
 } from "../page";
 import PrivateRoute from "./PrivateRoute";
-import FindUser from "../Admin/FindUser/FindUser";
 
 export const Routes = createBrowserRouter([
 	{
@@ -109,6 +108,14 @@ export const Routes = createBrowserRouter([
 				element: (
 					<PrivateRoute>
 						<FindUser />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/update/:id",
+				element: (
+					<PrivateRoute>
+						<UpdateUser />
 					</PrivateRoute>
 				),
 			},

@@ -12,6 +12,10 @@ function Customer() {
 		const phn_number = form.phn_number.value;
 		const date = new Date().toLocaleString();
 		const role = "customer_service";
+		const old_customer_service_id = "";
+		const old_wp_number = "";
+		const old_phn_number = "";
+		const old_type = "";
 
 		const customer = {
 			customer_service_id,
@@ -20,6 +24,10 @@ function Customer() {
 			wp_number,
 			phn_number,
 			date,
+			old_customer_service_id,
+			old_wp_number,
+			old_phn_number,
+			old_type,
 		};
 
 		// api call

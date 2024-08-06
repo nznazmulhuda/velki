@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function FindUser() {
 	const [addRole, setAddRole] = useState("site_admin");
@@ -189,7 +190,7 @@ function FindUser() {
 									<th>AGENT</th>
 									<th>APP</th>
 									<th>PHONE NUMBER</th>
-									<th>COMPLAIN</th>
+									<th>Update</th>
 								</tr>
 							</thead>
 
@@ -232,24 +233,22 @@ function FindUser() {
 
 									<td className="relative">
 										<a
-											href={`http://wa.me/${user?.phn_number}`}
+											href={`https://wa.me/${user?.phn_number}`}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+											className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#C00] hover:underline"
 										>
 											{user?.phn_number}
 										</a>
 									</td>
 
 									<td>
-										<a
-											href="http://wa.me/"
-											target="_blank"
-											rel="noopener noreferrer"
+										<Link
+											to={`/update/${user?._id}`}
 											className="text-[#C00] hover:underline"
 										>
-											অভিযোগ
-										</a>
+											Edit
+										</Link>
 									</td>
 								</tr>
 							</tbody>
@@ -291,7 +290,7 @@ function FindUser() {
 												<th>AGENT</th>
 												<th>APP</th>
 												<th>PHONE NUMBER</th>
-												<th>COMPLAIN</th>
+												<th>Update</th>
 											</tr>
 										</thead>
 
@@ -347,14 +346,12 @@ function FindUser() {
 														</td>
 
 														<td>
-															<a
-																href="http://wa.me/"
-																target="_blank"
-																rel="noopener noreferrer"
+															<Link
+																to={`/update/${agent?._id}`}
 																className="text-[#C00] hover:underline"
 															>
-																অভিযোগ
-															</a>
+																Edit
+															</Link>
 														</td>
 													</tr>
 												) : (
@@ -407,14 +404,12 @@ function FindUser() {
 														</td>
 
 														<td>
-															<a
-																href="http://wa.me/"
-																target="_blank"
-																rel="noopener noreferrer"
+															<Link
+																to={`/update/${agent?._id}`}
 																className="text-[#C00] hover:underline"
 															>
-																অভিযোগ
-															</a>
+																Edit
+															</Link>
 														</td>
 													</tr>
 												),
