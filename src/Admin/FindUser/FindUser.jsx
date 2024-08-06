@@ -9,6 +9,8 @@ function FindUser() {
 	const [addRole, setAddRole] = useState("site_admin");
 	const [error, setError] = useState("");
 	const [user, setUser] = useState(null);
+	const [under, setUnder] = useState([]);
+	const [underData, setUnderData] = useState([]);
 	const [underAgents, setUnderAgents] = useState([]);
 
 	const handleRole = (e) => {
@@ -16,6 +18,8 @@ function FindUser() {
 		setAddRole(e.target.value);
 		setError("");
 		setUser(null);
+		setUnder([]);
+		setUnderData([]);
 	};
 
 	const handleFind = (e) => {
@@ -30,6 +34,7 @@ function FindUser() {
 				.then((res) => {
 					setError("");
 					setUser(res.data);
+					setUnder(res.data.sub_admins);
 					e.target.reset();
 				})
 				.catch((err) => {
@@ -48,6 +53,13 @@ function FindUser() {
 				.then((res) => {
 					setError("");
 					setUser(res.data);
+					setUnder(
+						addRole === "super_agent"
+							? res.data.master_agents
+							: addRole === "sub_admin"
+							? res.data.super_agents
+							: [],
+					);
 					e.target.reset();
 				})
 				.catch((err) => {
@@ -57,6 +69,20 @@ function FindUser() {
 				});
 		}
 	};
+
+	useEffect(() => {
+		for (const user of under) {
+			axios
+				.get(`/allUsers?id=${user}`)
+				.then((res) => {
+					setUnderData((prev) => [...prev, res.data]);
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [under]);
 
 	useEffect(() => {
 		addRole === "site_admin"
@@ -262,7 +288,7 @@ function FindUser() {
 									{/* find users under agent title */}
 									<h1 className="text-sm md:text-xl text-center font-semibold text-[#000000c5] my-2 mt-4">
 										{addRole === "site_admin"
-											? "Site Admin"
+											? "সাইট এডমিন "
 											: addRole === "sub_admin"
 											? "সাব এডমিন"
 											: "সুপার এজেন্ট"}{" "}
@@ -295,7 +321,7 @@ function FindUser() {
 										</thead>
 
 										<tbody>
-											{underAgents.map((agent, id) =>
+											{underData.map((agent, id) =>
 												id % 2 === 0 ? (
 													<tr
 														key={id}

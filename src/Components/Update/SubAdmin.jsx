@@ -38,7 +38,7 @@ function SubAdmin({ user }) {
 						<label>Agent Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="agent_id"
 							placeholder="Agent id number"
 							defaultValue={agentId}
@@ -52,7 +52,7 @@ function SubAdmin({ user }) {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							defaultValue={wpNumber}
@@ -66,7 +66,7 @@ function SubAdmin({ user }) {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
 							defaultValue={phnNumber}
