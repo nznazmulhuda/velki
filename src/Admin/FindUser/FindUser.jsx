@@ -1,11 +1,13 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 function FindUser() {
+	const { user: loginUser } = useContext(AuthContext);
 	const [addRole, setAddRole] = useState("admin");
 	const [error, setError] = useState("");
 	const [user, setUser] = useState(null);
@@ -216,7 +218,7 @@ function FindUser() {
 									<th>AGENT</th>
 									<th>APP</th>
 									<th>PHONE NUMBER</th>
-									<th>Update</th>
+									{loginUser && <th>Update</th>}
 								</tr>
 							</thead>
 
@@ -268,14 +270,16 @@ function FindUser() {
 										</a>
 									</td>
 
-									<td>
-										<Link
-											to={`/update/${user?._id}`}
-											className="text-[#C00] hover:underline"
-										>
-											Edit
-										</Link>
-									</td>
+									{loginUser && (
+										<td>
+											<Link
+												to={`/update/${user?._id}`}
+												className="text-[#C00] hover:underline"
+											>
+												Edit
+											</Link>
+										</td>
+									)}
 								</tr>
 							</tbody>
 						</table>
@@ -316,7 +320,7 @@ function FindUser() {
 												<th>AGENT</th>
 												<th>APP</th>
 												<th>PHONE NUMBER</th>
-												<th>Update</th>
+												{loginUser && <th>Update</th>}
 											</tr>
 										</thead>
 
@@ -370,14 +374,16 @@ function FindUser() {
 															</a>
 														</td>
 
-														<td>
-															<Link
-																to={`/update/${agent?._id}`}
-																className="text-[#C00] hover:underline"
-															>
-																Edit
-															</Link>
-														</td>
+														{loginUser && (
+															<td>
+																<Link
+																	to={`/update/${agent?._id}`}
+																	className="text-[#C00] hover:underline"
+																>
+																	Edit
+																</Link>
+															</td>
+														)}
 													</tr>
 												) : (
 													<tr
@@ -427,14 +433,16 @@ function FindUser() {
 															</a>
 														</td>
 
-														<td>
-															<Link
-																to={`/update/${agent?._id}`}
-																className="text-[#C00] hover:underline"
-															>
-																Edit
-															</Link>
-														</td>
+														{loginUser && (
+															<td>
+																<Link
+																	to={`/update/${agent?._id}`}
+																	className="text-[#C00] hover:underline"
+																>
+																	Edit
+																</Link>
+															</td>
+														)}
 													</tr>
 												),
 											)}

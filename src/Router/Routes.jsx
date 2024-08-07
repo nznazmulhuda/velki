@@ -41,7 +41,7 @@ export const Routes = createBrowserRouter([
 			},
 			{
 				path: "/agentVerify",
-				element: <AgentVerify />,
+				element: <FindUser />,
 			},
 			{
 				path: "/autoDeposit",
