@@ -29,7 +29,7 @@ function SectionTwo() {
                     date="02 july 2024"
                     id="2025"
                     masterPath="/"
-                    wpNumber="+8801580507352"
+                    wpNumber="123456789"
                     masterSerial="1"
                 />
 
@@ -37,7 +37,7 @@ function SectionTwo() {
                     date="31 Augest 2021"
                     id="2028"
                     masterPath="/"
-                    wpNumber="+8801580507352"
+                    wpNumber="123456789"
                     masterSerial="3"
                 />
 
@@ -45,7 +45,7 @@ function SectionTwo() {
                     date="02 july 2024"
                     id="2044"
                     masterPath="/"
-                    wpNumber="+8801580507352"
+                    wpNumber="123456789"
                     masterSerial="3"
                 />
 
@@ -53,7 +53,7 @@ function SectionTwo() {
                     date="02 july 2024"
                     id="2555"
                     masterPath="/"
-                    wpNumber="+8801580507352"
+                    wpNumber="123456789"
                     masterSerial="4"
                 />
             </div>

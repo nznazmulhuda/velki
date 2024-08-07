@@ -14,22 +14,24 @@ import SubAdmin from "./SubAdmin/SubAdmin";
 import SuperAgent from "./SuperAgent/SuperAgent";
 import AutoDeposit from "./AutoDeposit/AutoDeposit";
 import Authentication from "./Authentication/Authentication";
+import Homepage from "./Homepage/Homepage";
 
 export {
-    AccountCreate,
-    AgentNewNumber,
-    AgentVerify,
-    AutoDeposit,
-    Authentication,
-    Community,
-    CustomerService,
-    ErrorPage,
-    Forum,
-    Home,
-    MasterAgent,
-    PhoneNumSearch,
-    ProxyLink,
-    SiteAdmin,
-    SubAdmin,
-    SuperAgent,
+	AccountCreate,
+	AgentNewNumber,
+	AgentVerify,
+	AutoDeposit,
+	Authentication,
+	Community,
+	CustomerService,
+	ErrorPage,
+	Forum,
+	Home,
+	MasterAgent,
+	PhoneNumSearch,
+	ProxyLink,
+	SiteAdmin,
+	SubAdmin,
+	SuperAgent,
+	Homepage,
 };

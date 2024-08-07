@@ -4,7 +4,6 @@ import { AddUser, Dashboard, FindUser, UpdateUser } from "../Admin";
 import {
 	AccountCreate,
 	AgentNewNumber,
-	AgentVerify,
 	Authentication,
 	AutoDeposit,
 	Community,
@@ -12,6 +11,7 @@ import {
 	ErrorPage,
 	Forum,
 	Home,
+	Homepage,
 	MasterAgent,
 	PhoneNumSearch,
 	ProxyLink,
@@ -29,6 +29,10 @@ export const Routes = createBrowserRouter([
 		children: [
 			{
 				path: "/",
+				element: <Homepage />,
+			},
+			{
+				path: "/home",
 				element: <Home />,
 			},
 			{

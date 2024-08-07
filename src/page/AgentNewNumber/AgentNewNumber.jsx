@@ -91,15 +91,15 @@ function AgentNewNumber() {
                             <tr className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm">
                                 <td>2025</td>
                                 <td>----</td>
-                                <td>+8801580507352</td>
-                                <td>+8801761934601</td>
+                                <td>123456789</td>
+                                <td>123456789</td>
                             </tr>
 
                             <tr className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm">
                                 <td>2055</td>
                                 <td>3520</td>
-                                <td>+8801761934601</td>
-                                <td>+8801580507352</td>
+                                <td>123456789</td>
+                                <td>123456789</td>
                             </tr>
                         </tbody>
                     </table>
