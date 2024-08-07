@@ -6,7 +6,7 @@ import MasterAgent from "../../Components/AddUser/MasterAgent";
 import Customer from "../../Components/AddUser/Customer";
 
 function AddUser() {
-	const [addRole, setAddRole] = useState("site_admin");
+	const [addRole, setAddRole] = useState("admin");
 	const handleRole = (e) => {
 		e.preventDefault();
 		setAddRole(e.target.value);
@@ -22,10 +22,10 @@ function AddUser() {
 					<label htmlFor="role">Add type:</label>
 					<select
 						name="role"
-						defaultValue="site_admin"
+						defaultValue="admin"
 						className="text-[#C00] ml-2 outline-none border px-2 py-1 rounded-md cursor-pointer"
 					>
-						<option value="site_admin">Site-Admin</option>
+						<option value="admin">Site-Admin</option>
 						<option value="sub_admin">Sub Admin</option>
 						<option value="super_agent">Super Agent</option>
 						<option value="master_agent">Master Agent</option>
@@ -37,7 +37,7 @@ function AddUser() {
 
 				<div className="text-center">
 					<h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-[#C00] cursor-pointer hover:underline transition-all ease-linear my-2 md:my-4">
-						{addRole === "site_admin"
+						{addRole === "admin"
 							? "Add New Site Admin"
 							: addRole === "sub_admin"
 							? "Add New Sub Admin"
@@ -50,7 +50,7 @@ function AddUser() {
 				</div>
 
 				{/* form */}
-				{addRole === "site_admin" ? (
+				{addRole === "admin" ? (
 					<SiteAdmin />
 				) : addRole === "sub_admin" ? (
 					<SubAdmin />

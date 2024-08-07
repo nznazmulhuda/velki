@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function FindUser() {
-	const [addRole, setAddRole] = useState("site_admin");
+	const [addRole, setAddRole] = useState("admin");
 	const [error, setError] = useState("");
 	const [user, setUser] = useState(null);
 	const [under, setUnder] = useState([]);
@@ -25,7 +25,7 @@ function FindUser() {
 	const handleFind = (e) => {
 		e.preventDefault();
 
-		if (addRole === "site_admin") {
+		if (addRole === "admin") {
 			const username = e.target.username.value;
 
 			// api call
@@ -38,7 +38,7 @@ function FindUser() {
 					e.target.reset();
 				})
 				.catch((err) => {
-					toast.error(err.response.data);
+					toast.error(err.message);
 					setError(err.response.data);
 					setUser(null);
 				});
@@ -85,7 +85,7 @@ function FindUser() {
 	}, [under]);
 
 	useEffect(() => {
-		addRole === "site_admin"
+		addRole === "admin"
 			? setUnderAgents(user?.sub_admins || [])
 			: addRole === "sub_admin"
 			? setUnderAgents(user?.super_agents || [])
@@ -104,10 +104,10 @@ function FindUser() {
 					<label htmlFor="role">Find: </label>
 					<select
 						name="role"
-						defaultValue="site_admin"
+						defaultValue="admin"
 						className="text-[#C00] ml-2 outline-none border px-2 py-1 rounded-md cursor-pointer"
 					>
-						<option value="site_admin">Site-Admin</option>
+						<option value="admin">Site-Admin</option>
 						<option value="sub_admin">Sub Admin</option>
 						<option value="super_agent">Super Agent</option>
 						<option value="master_agent">Master Agent</option>
@@ -120,7 +120,7 @@ function FindUser() {
 				{/* dynamic title  */}
 				<div className="text-center">
 					<h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-[#C00] cursor-pointer hover:underline transition-all ease-linear my-2 md:my-4">
-						{addRole === "site_admin"
+						{addRole === "admin"
 							? "Find Site Admin"
 							: addRole === "sub_admin"
 							? "Find Sub Admin"
@@ -137,7 +137,7 @@ function FindUser() {
 					onSubmit={handleFind}
 					className="border p-6 rounded-md flex flex-col space-y-4"
 				>
-					{addRole === "site_admin" ? (
+					{addRole === "admin" ? (
 						<div className="flex flex-col w-full space-y-1">
 							<label htmlFor="id_no">Username:</label>
 							<input
@@ -170,7 +170,7 @@ function FindUser() {
 						Find{" "}
 						{
 							<span className="">
-								{addRole === "site_admin"
+								{addRole === "admin"
 									? "site admin"
 									: addRole === "sub_admin"
 									? "sub admin"
@@ -197,7 +197,7 @@ function FindUser() {
 					<>
 						{/* find details title */}
 						<h1 className="text-sm md:text-lg lg:text-xl font-bold text-[#C00] cursor-pointer hover:underline transition-all ease-linear my-2 md:my-4 text-center">
-							{addRole === "site_admin"
+							{addRole === "admin"
 								? "Site Admin"
 								: addRole === "sub_admin"
 								? "Sub Admin"
@@ -223,7 +223,7 @@ function FindUser() {
 							<tbody>
 								<tr className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm">
 									<td>
-										{addRole === "site_admin"
+										{addRole === "admin"
 											? user?.username
 											: addRole === "sub_admin"
 											? user?.agent_id
@@ -235,7 +235,7 @@ function FindUser() {
 									</td>
 
 									<td>
-										{addRole === "site_admin"
+										{addRole === "admin"
 											? "Site Admin"
 											: addRole === "sub_admin"
 											? "Sub Admin"
@@ -287,18 +287,18 @@ function FindUser() {
 
 									{/* find users under agent title */}
 									<h1 className="text-sm md:text-xl text-center font-semibold text-[#000000c5] my-2 mt-4">
-										{addRole === "site_admin"
+										{addRole === "admin"
 											? "সাইট এডমিন "
 											: addRole === "sub_admin"
 											? "সাব এডমিন"
 											: "সুপার এজেন্ট"}{" "}
-										{addRole === "site_admin"
+										{addRole === "admin"
 											? user?.username
 											: addRole === "sub_admin"
 											? user?.agent_id
 											: user?.super_agent_id}{" "}
 										এর অধীনে সর্বমোট{" "}
-										{addRole === "site_admin"
+										{addRole === "admin"
 											? "সাব এডমিন"
 											: addRole === "sub_admin"
 											? "সুপার এজেন্ট"
@@ -328,8 +328,7 @@ function FindUser() {
 														className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
 													>
 														<td>
-															{addRole ===
-															"site_admin"
+															{addRole === "admin"
 																? agent?.agent_id
 																: addRole ===
 																  "sub_admin"
@@ -386,8 +385,7 @@ function FindUser() {
 														className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
 													>
 														<td>
-															{addRole ===
-															"site_admin"
+															{addRole === "admin"
 																? agent?.agent_id
 																: addRole ===
 																  "sub_admin"

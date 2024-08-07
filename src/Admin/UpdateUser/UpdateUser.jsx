@@ -33,7 +33,7 @@ function UpdateUser() {
 				</h1>
 
 				{/* form */}
-				{data?.role === "site_admin" ? (
+				{data?.role === "admin" ? (
 					<SiteAdmin user={data} />
 				) : data?.role === "sub_admin" ? (
 					<SubAdmin user={data} />
