@@ -1,9 +1,9 @@
-import { FaWhatsapp } from "react-icons/fa";
-import superPic from "../../assets/agent/super.jpg";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import { FindUser } from "../../Admin";
-import axios from "axios";
 import { useState, useEffect } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import superPic from "../../assets/agent/super.jpg";
 
 function SuperAgent() {
 	const [datas, setDatas] = useState([]);

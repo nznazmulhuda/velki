@@ -14,6 +14,7 @@ function SubAdmin() {
 		const phn_number = form.phn_number.value;
 		const date = new Date().toLocaleString();
 		const under_id = user._id;
+		const admin = user.username;
 		const role = "sub_admin";
 		const super_agents = [];
 		const old_agent_id = "";
@@ -31,6 +32,7 @@ function SubAdmin() {
 			old_agent_id,
 			old_wp_number,
 			old_phn_number,
+			admin,
 		};
 
 		// api call
