@@ -10,25 +10,20 @@ function MasterAgent() {
 	const [masters, setMasters] = useState([]);
 
 	useEffect(() => {
-		axios.get("getAllMasterAgents").then((res) => {
+		axios.get("/getAllMasterAgents").then((res) => {
 			setDatas(res.data);
+			res.data.map((agent) =>
+				agent.master_agents.map((master_id) =>
+					axios
+						.get(`/getMasterAgentById?id=${master_id}`)
+						.then((res) =>
+							setMasters((masters) => [...masters, res.data]),
+						),
+				),
+			);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	useEffect(() => {
-		datas.forEach((superAgent) => {
-			superAgent.master_agents.forEach((masterAgent) => {
-				axios
-					.get(`/getMasterAgentById?id=${masterAgent}`)
-					.then((res) => setMasters([...masters, res.data]))
-					.catch((e) => console.log(e));
-			});
-		});
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [datas]);
-	console.log(datas);
 
 	return (
 		<>
@@ -127,86 +122,53 @@ function MasterAgent() {
 								</thead>
 
 								<tbody>
-									{masters?.map((agent, id) =>
-										id % 2 === 0 ? (
-											<tr
-												key={id}
-												className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
-											>
-												<td>
-													{agent?.master_agent_id}
-												</td>
-												<td>মাষ্টার</td>
-												<td className="relative">
-													<a
-														href={`http://wa.me/${agent.wp_number}`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-													>
-														<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
-													</a>
-												</td>
-												<td>
-													<a
-														href={`http://wa.me/${agent.phn_number}`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-[#C00] hover:underline"
-													>
-														{agent.phn_number}
-													</a>
-												</td>
-												<td>
-													<a
-														href={`https://wa.me/01580507352`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-[#C00] hover:underline"
-													>
-														অভিযোগ
-													</a>
-												</td>
-											</tr>
-										) : (
-											<tr
-												key={id}
-												className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
-											>
-												<td>{agent.master_agent_id}</td>
-												<td>মাষ্টার</td>
-												<td className="relative">
-													<a
-														href={`http://wa.me/${agent.wp_number}`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-													>
-														<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
-													</a>
-												</td>
-												<td>
-													<a
-														href={`http://wa.me/${agent.phn_number}`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-[#C00] hover:underline"
-													>
-														{agent.phn_number}
-													</a>
-												</td>
-												<td>
-													<a
-														href={`https://wa.me/01580507352`}
-														target="_blank"
-														rel="noopener noreferrer"
-														className="text-[#C00] hover:underline"
-													>
-														অভিযোগ
-													</a>
-												</td>
-											</tr>
-										),
+									{masters?.map(
+										(agent, id) =>
+											agent.under_id === data._id && (
+												<tr
+													key={id}
+													className={` ${
+														id % 2 === 0
+															? "text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
+															: "text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+													}`}
+												>
+													<td>
+														{agent?.master_agent_id}
+													</td>
+													<td>মাষ্টার</td>
+													<td className="relative">
+														<a
+															href={`http://wa.me/${agent.wp_number}`}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+														>
+															<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+														</a>
+													</td>
+													<td>
+														<a
+															href={`http://wa.me/${agent.phn_number}`}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="text-[#C00] hover:underline"
+														>
+															{agent.phn_number}
+														</a>
+													</td>
+													<td>
+														<a
+															href={`https://wa.me/01580507352`}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="text-[#C00] hover:underline"
+														>
+															অভিযোগ
+														</a>
+													</td>
+												</tr>
+											),
 									)}
 								</tbody>
 							</table>

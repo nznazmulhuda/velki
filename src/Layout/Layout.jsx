@@ -8,7 +8,6 @@ import Admin from "../Components/Shared/Navbar/Admin";
 function Layout() {
 	const { user } = useContext(AuthContext);
 	const { pathname } = useLocation();
-	console.log(pathname);
 	return (
 		<div>
 			{pathname === "/" ? (

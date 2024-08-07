@@ -4,8 +4,19 @@ import { FaQuestionCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { BiLogoWhatsappSquare } from "react-icons/bi";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 function Homepage() {
+	const [master, setMaster] = useState({});
+
+	useEffect(() => {
+		axios
+			.get("/randomMaster")
+			.then((res) => setMaster(res.data))
+			.catch(() => toast.error("Somting Went wrong. Please Try again!"));
+	}, []);
 	return (
 		<>
 			<div className="bg-[#FFC812]">
@@ -16,7 +27,7 @@ function Homepage() {
 				<div className="bg-[#D4D4D4] border border-[#FAFAFA] flex items-center justify-center mb-2 md:mb-3 lg:mb-4">
 					<Link
 						to={"/home"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
 					>
 						<IoHome />
 						Home
@@ -24,7 +35,7 @@ function Homepage() {
 
 					<Link
 						to={"/CustomerService"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
 					>
 						<FaQuestionCircle />
 						Customer Service
@@ -32,7 +43,7 @@ function Homepage() {
 
 					<Link
 						to={"/agentNewNumber"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 md:py-1 px-4 uppercase"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 px-4 uppercase"
 					>
 						<IoSettings />
 						Old/New
@@ -42,7 +53,7 @@ function Homepage() {
 				<div className="bg-[#D4D4D4] border border-[#FAFAFA] flex items-center justify-center mb-2">
 					<Link
 						to={"/siteAdmin"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 uppercase md:py-1 px-4"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
 					>
 						<IoSettings />
 						admin
@@ -50,7 +61,7 @@ function Homepage() {
 
 					<Link
 						to={"/superAgent"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 uppercase md:py-1 px-4"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4 border-x-2"
 					>
 						<IoSettings />
 						super
@@ -58,7 +69,7 @@ function Homepage() {
 
 					<Link
 						to={"/masterAgent"}
-						className="text-[#444444] text-[11px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-medium py-1 uppercase md:py-1 px-4"
+						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
 					>
 						<IoSettings />
 						master
@@ -75,25 +86,36 @@ function Homepage() {
 						</div>
 
 						{/* down content */}
-						<div className="flex items-center justify-center w-[80%] lg:w-[20%] mx-auto">
+						<div className="flex items-center justify-center w-[60%] lg:w-[20%] mx-auto">
 							<div className="border border-[#FF9933] mb-4 w-full">
 								{/* content */}
 								<div className="bg-[#FBFEDF] p-2">
 									<div className="bg-[#CCCCCC]">
-										<div className="flex items-center justify-between px-2 font-semibold md:text-xl lg:text-3xl md:mb-2 lg:mb-4">
+										<div className="flex items-center justify-between px-2 font-semibold text-xl lg:text-3xl md:mb-2 lg:mb-4">
 											<h1>Agent id:</h1>
-											<h1 className="text-[#FF6600]">
-												2422
-											</h1>
+											<a
+												href={`https://wa.me/${master?.wp_number}`}
+												target="_blank"
+												className="text-[#FF6600]"
+											>
+												{master?.master_agent_id}
+											</a>
 										</div>
 
-										<div className="flex items-center justify-between mt-1 px-2 font-semibold md:text-xl lg:text-3xl ">
-											<h1>
-												<BiLogoWhatsappSquare className="text-green-500 text-xl md:text-2xl lg:text-3xl" />
-											</h1>
-											<h1 className="text-[#FF6600]">
-												123456789
-											</h1>
+										<div className="flex items-center justify-between mt-1 px-2 font-semibold text-2xl lg:text-3xl ">
+											<a
+												href={`https://wa.me/${master?.wp_number}`}
+												target="_blank"
+											>
+												<BiLogoWhatsappSquare className="text-green-500 text-3xl" />
+											</a>
+											<a
+												href={`https://wa.me/${master?.phn_number}`}
+												target="_blank"
+												className="text-[#FF6600]"
+											>
+												{master?.phn_number}
+											</a>
 										</div>
 									</div>
 								</div>

@@ -3,7 +3,7 @@ import MidNavbar from "./MidNavbar";
 import TopNavbar from "./TopNavbar";
 import { MdMenu } from "react-icons/md";
 import NavbarImage from "../../../assets/NavbarRes.jpg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 
@@ -26,7 +26,7 @@ function Navbar() {
 				id="top"
 			>
 				<div className="flex justify-between items-center">
-					<div className="flex items-center gap-2">
+					<Link to={"/"} className="flex items-center gap-2">
 						<button
 							onClick={() => setIsSidebar(true)}
 							className="p-4 hover:bg-[#E5E5E5] border-r"
@@ -35,7 +35,7 @@ function Navbar() {
 						</button>
 
 						<img src={NavbarImage} className="w-20" alt="" />
-					</div>
+					</Link>
 
 					<div>
 						<NavLink

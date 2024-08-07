@@ -38,7 +38,7 @@ function Sidebar({ setIsSidebar }) {
 
 					<NavLink
 						onClick={() => setIsSidebar(false)}
-						to={"/"}
+						to={"/home"}
 						className={({ isActive }) =>
 							isActive
 								? "bg-[#C00] p-2 text-gray-300 overflow-hidden block w-full border-b"
