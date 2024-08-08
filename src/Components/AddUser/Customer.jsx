@@ -56,7 +56,7 @@ function Customer() {
 						<label>Customer Service Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="customer_service_id"
 							placeholder="Customer service id number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -80,7 +80,7 @@ function Customer() {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -92,7 +92,7 @@ function Customer() {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"

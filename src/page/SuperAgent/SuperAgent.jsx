@@ -138,7 +138,7 @@ function SuperAgent() {
 													<td>সুপার</td>
 													<td className="relative">
 														<a
-															href={`http://wa.me/${agent.wp_number}`}
+															href={`https://wa.me/${agent.wp_number}`}
 															target="_blank"
 															rel="noopener noreferrer"
 															className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
@@ -148,7 +148,7 @@ function SuperAgent() {
 													</td>
 													<td>
 														<a
-															href={`http://wa.me/${agent.phn_number}`}
+															href={`https://wa.me/${agent.phn_number}`}
 															target="_blank"
 															rel="noopener noreferrer"
 															className="text-[#C00] hover:underline"
@@ -158,7 +158,7 @@ function SuperAgent() {
 													</td>
 													<td>
 														<a
-															href={`https://wa.me/01580507352`}
+															href={`https://wa.me/${agent.complain_number}`}
 															target="_blank"
 															rel="noopener noreferrer"
 															className="text-[#C00] hover:underline"

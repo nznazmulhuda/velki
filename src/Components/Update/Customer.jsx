@@ -42,6 +42,19 @@ function Customer({ user }) {
 			.catch((err) => toast.error(err.message));
 	};
 
+	const handleDelete = (id) => {
+		axios
+			.delete(`/deleteCustomer?id=${id}`)
+			.then((res) => {
+				if (res.data.deletedCount > 0) {
+					toast.success("Sub Admin deleted successfully!");
+				} else {
+					toast.error("Something went wrong. Please try again!");
+				}
+			})
+			.catch((err) => toast.error(err.response.data));
+	};
+
 	return (
 		<>
 			<div className="p-4">
@@ -54,7 +67,7 @@ function Customer({ user }) {
 						<label>Customer Service Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="customer_service_id"
 							placeholder="Customer service id number"
 							defaultValue={customer_service_id}
@@ -84,7 +97,7 @@ function Customer({ user }) {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							defaultValue={wp_number}
@@ -98,7 +111,7 @@ function Customer({ user }) {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
 							defaultValue={phn_number}
@@ -107,12 +120,22 @@ function Customer({ user }) {
 						/>
 					</div>
 
-					<button
-						type="submit"
-						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
-					>
-						Add Customer Service
-					</button>
+					<div className="flex items-center flex-wrap">
+						<button
+							type="submit"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
+						>
+							Update {user?.role?.split("_").join(" ")}
+						</button>
+
+						<button
+							onClick={() => handleDelete(user?._id)}
+							type="button"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-xs md:text-lg font-medium mx-auto px-4"
+						>
+							Delete this {user?.role?.split("_").join(" ")}
+						</button>
+					</div>
 				</form>
 			</div>
 		</>
@@ -120,7 +143,7 @@ function Customer({ user }) {
 }
 
 Customer.propTypes = {
-	user: PropTypes.object.isRequired,
+	user: PropTypes.object,
 };
 
 export default Customer;

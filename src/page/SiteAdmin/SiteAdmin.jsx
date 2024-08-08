@@ -113,7 +113,7 @@ function SiteAdmin() {
 
 										<td>
 											<a
-												href={`http://wa.me/${admin?.wp_number}`}
+												href={`https://wa.me/${admin?.wp_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
@@ -124,7 +124,7 @@ function SiteAdmin() {
 
 										<td>
 											<a
-												href={`http://wa.me/${admin?.phn_number}`}
+												href={`https://wa.me/${admin?.phn_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-[#C00] hover:underline"
@@ -155,7 +155,7 @@ function SiteAdmin() {
 
 										<td>
 											<a
-												href={`http://wa.me/${admin?.wp_number}`}
+												href={`https://wa.me/${admin?.wp_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
@@ -166,7 +166,7 @@ function SiteAdmin() {
 
 										<td>
 											<a
-												href={`http://wa.me/${admin?.phn_number}`}
+												href={`https://wa.me/${admin?.phn_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-[#C00] hover:underline"

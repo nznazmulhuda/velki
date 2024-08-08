@@ -20,17 +20,19 @@ function UpdateUser() {
 		<>
 			<div>
 				{/* title */}
-				<h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold my-4">
-					Update{" "}
-					<span className="text-[#C00] hover:underline cursor-pointer">
-						{data?.role
-							?.split("_")
-							.join(" ")
-							.slice(0, 1)
-							.toUpperCase() +
-							data?.role?.split("_").join(" ").slice(1)}
-					</span>
-				</h1>
+				{data && (
+					<h1 className="text-center text-xl md:text-2xl lg:text-3xl font-bold my-4">
+						Update{" "}
+						<span className="text-[#C00] hover:underline cursor-pointer">
+							{data?.role
+								?.split("_")
+								.join(" ")
+								.slice(0, 1)
+								.toUpperCase() +
+								data?.role?.split("_").join(" ").slice(1)}
+						</span>
+					</h1>
+				)}
 
 				{/* form */}
 				{data?.role === "admin" ? (

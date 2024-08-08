@@ -10,6 +10,9 @@ function SuperAgent({ user }) {
 	);
 	const [wpNumber, setWpNumber] = useState(user?.wp_number || "");
 	const [phnNumber, setPhnNumber] = useState(user?.phn_number || "");
+	const [complainNumber, setComplainNumber] = useState(
+		user?.complain_number || "",
+	);
 
 	const update = (e) => {
 		e.preventDefault();
@@ -17,11 +20,13 @@ function SuperAgent({ user }) {
 		const updateSuperAgentId = superAgentId;
 		const updateWpNumber = wpNumber;
 		const updatePhnNumber = phnNumber;
+		const updateComplainNumber = complainNumber;
 		const updateData = {
 			updateSubAdminId,
 			updateSuperAgentId,
 			updateWpNumber,
 			updatePhnNumber,
+			updateComplainNumber,
 		};
 
 		// Update user data with the new data and call the API to update it
@@ -36,6 +41,20 @@ function SuperAgent({ user }) {
 			})
 			.catch((err) => toast.error(err.response.data));
 	};
+
+	const handleDelete = (id) => {
+		axios
+			.delete(`/deleteSuperAgent?id=${id}`)
+			.then((res) => {
+				if (res.data.deletedCount > 0) {
+					toast.success("Sub Admin deleted successfully!");
+				} else {
+					toast.error("Something went wrong. Please try again!");
+				}
+			})
+			.catch((err) => toast.error(err.response.data));
+	};
+
 	return (
 		<>
 			<div className="p-4">
@@ -99,12 +118,36 @@ function SuperAgent({ user }) {
 						/>
 					</div>
 
-					<button
-						type="submit"
-						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
-					>
-						Update {user?.role?.split("_").join(" ")}
-					</button>
+					{/* Phone number */}
+					<div className="flex flex-col w-full space-y-1">
+						<label>Complain number:</label>
+						<input
+							required
+							type="text"
+							name="complain_number"
+							placeholder="Complain number"
+							defaultValue={complainNumber}
+							onChange={(e) => setComplainNumber(e.target.value)}
+							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
+						/>
+					</div>
+
+					<div className="flex items-center flex-wrap">
+						<button
+							type="submit"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
+						>
+							Update {user?.role?.split("_").join(" ")}
+						</button>
+
+						<button
+							onClick={() => handleDelete(user?._id)}
+							type="button"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-xs md:text-lg font-medium mx-auto px-4"
+						>
+							Delete this {user?.role?.split("_").join(" ")}
+						</button>
+					</div>
 				</form>
 			</div>
 		</>
@@ -112,7 +155,7 @@ function SuperAgent({ user }) {
 }
 
 SuperAgent.propTypes = {
-	user: PropTypes.object.isRequired,
+	user: PropTypes.object,
 };
 
 export default SuperAgent;

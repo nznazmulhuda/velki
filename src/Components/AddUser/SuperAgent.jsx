@@ -10,6 +10,7 @@ function SuperAgent() {
 		const super_agent_id = form.super_agent_id.value;
 		const wp_number = form.wp_number.value;
 		const phn_number = form.phn_number.value;
+		const complain_number = form.complain_number.value;
 		const date = new Date().toLocaleString();
 		const master_agents = [];
 		const role = "super_agent";
@@ -30,6 +31,7 @@ function SuperAgent() {
 			old_agent_id,
 			old_wp_number,
 			old_phn_number,
+			complain_number,
 		};
 
 		// api call
@@ -58,7 +60,7 @@ function SuperAgent() {
 						<label>Sub_admin Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="sub_admin_id"
 							placeholder="Sub-admin id number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -70,7 +72,7 @@ function SuperAgent() {
 						<label>New Super Agent Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="super_agent_id"
 							placeholder="Super agent id number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -82,7 +84,7 @@ function SuperAgent() {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -94,9 +96,21 @@ function SuperAgent() {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
+							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
+						/>
+					</div>
+
+					{/* Phone number */}
+					<div className="flex flex-col w-full space-y-1">
+						<label>Complain number:</label>
+						<input
+							required
+							type="text"
+							name="complain_number"
+							placeholder="Complain number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 						/>
 					</div>

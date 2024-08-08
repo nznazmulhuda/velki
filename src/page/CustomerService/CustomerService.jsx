@@ -64,7 +64,7 @@ function CustomerService() {
 										<td>{customer.type}</td>
 										<td className="flex items-center justify-center mt-1">
 											<a
-												href={`http://wa.me/${customer.wp_number}`}
+												href={`https://wa.me/${customer.wp_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 											>
@@ -73,7 +73,7 @@ function CustomerService() {
 										</td>
 										<td>
 											<a
-												href={`http://wa.me/${customer.phn_number}`}
+												href={`https://wa.me/${customer.phn_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-[#C00] hover:underline"
@@ -91,7 +91,7 @@ function CustomerService() {
 										<td>{customer.type}</td>
 										<td className="flex items-center justify-center mt-1">
 											<a
-												href={`http://wa.me/${customer.wp_number}`}
+												href={`https://wa.me/${customer.wp_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 											>
@@ -100,7 +100,7 @@ function CustomerService() {
 										</td>
 										<td>
 											<a
-												href={`http://wa.me/${customer.phn_number}`}
+												href={`https://wa.me/${customer.phn_number}`}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="text-[#C00] hover:underline"

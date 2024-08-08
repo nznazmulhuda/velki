@@ -12,6 +12,7 @@ function SubAdmin() {
 		const agent_id = form.agent_id.value;
 		const wp_number = form.wp_number.value;
 		const phn_number = form.phn_number.value;
+		const complain_number = form.complain_number.value;
 		const date = new Date().toLocaleString();
 		const under_id = user._id;
 		const admin = user.username;
@@ -32,6 +33,7 @@ function SubAdmin() {
 			old_agent_id,
 			old_wp_number,
 			old_phn_number,
+			complain_number,
 			admin,
 		};
 
@@ -61,7 +63,7 @@ function SubAdmin() {
 						<label>Agent Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="agent_id"
 							placeholder="Agent id number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -73,7 +75,7 @@ function SubAdmin() {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -85,9 +87,21 @@ function SubAdmin() {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
+							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
+						/>
+					</div>
+
+					{/* complain number */}
+					<div className="flex flex-col w-full space-y-1">
+						<label>Complain number:</label>
+						<input
+							required
+							type="text"
+							name="complain_number"
+							placeholder="Complain number"
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 						/>
 					</div>

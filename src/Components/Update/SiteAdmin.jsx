@@ -108,6 +108,19 @@ function SiteAdmin({ user }) {
 		}
 	};
 
+	const handleDelete = (id) => {
+		axios
+			.delete(`/deleteAdmin?id=${id}`)
+			.then((res) => {
+				if (res.data.deletedCount > 0) {
+					toast.success("Sub Admin deleted successfully!");
+				} else {
+					toast.error("Something went wrong. Please try again!");
+				}
+			})
+			.catch((err) => toast.error(err.response.data));
+	};
+
 	return (
 		<>
 			<div className="p-4">
@@ -134,7 +147,7 @@ function SiteAdmin({ user }) {
 						<label>Admin Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="admin_id"
 							placeholder="Admin id"
 							defaultValue={admin_id}
@@ -148,7 +161,7 @@ function SiteAdmin({ user }) {
 						<label>Whatsapp no:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							defaultValue={wp_number}
@@ -162,7 +175,7 @@ function SiteAdmin({ user }) {
 						<label>Telegram no:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="tele_number"
 							placeholder="Telegram Number"
 							defaultValue={tele_number}
@@ -176,7 +189,7 @@ function SiteAdmin({ user }) {
 						<label>Phone no:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone Number"
 							defaultValue={phn_number}
@@ -224,12 +237,22 @@ function SiteAdmin({ user }) {
 						/>
 					</div>
 
-					<button
-						type="submit"
-						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
-					>
-						Update {user?.role?.split("_").join(" ")}
-					</button>
+					<div className="flex items-center flex-wrap">
+						<button
+							type="submit"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-xs md:text-lg font-medium mx-auto px-4"
+						>
+							Update {user?.role?.split("_").join(" ")}
+						</button>
+
+						<button
+							onClick={() => handleDelete(user?._id)}
+							type="button"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-xs md:text-lg font-medium mx-auto px-4"
+						>
+							Delete this {user?.role?.split("_").join(" ")}
+						</button>
+					</div>
 				</form>
 			</div>
 		</>

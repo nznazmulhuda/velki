@@ -14,6 +14,9 @@ function MasterAgent({ user }) {
 	const [updatePhnNumber, setUpdatePhnNumber] = useState(
 		user?.phn_number || "",
 	);
+	const [complainNumber, setComplainNumber] = useState(
+		user?.complain_number || "",
+	);
 
 	const update = (e) => {
 		e.preventDefault();
@@ -22,6 +25,7 @@ function MasterAgent({ user }) {
 			updateMasterAgentId,
 			updateWpNumber,
 			updatePhnNumber,
+			complainNumber,
 		};
 
 		axios
@@ -35,6 +39,20 @@ function MasterAgent({ user }) {
 			})
 			.catch((err) => toast.error(err.message));
 	};
+
+	const handleDelete = (id) => {
+		axios
+			.delete(`/deleteMasterAgent?id=${id}`)
+			.then((res) => {
+				if (res.data.deletedCount > 0) {
+					toast.success("Sub Admin deleted successfully!");
+				} else {
+					toast.error("Something went wrong. Please try again!");
+				}
+			})
+			.catch((err) => toast.error(err.response.data));
+	};
+
 	return (
 		<>
 			<div className="p-4">
@@ -47,7 +65,7 @@ function MasterAgent({ user }) {
 						<label>Super agent Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="super_agent_id"
 							placeholder="Super agent id number"
 							defaultValue={updateSuperAgentId}
@@ -63,7 +81,7 @@ function MasterAgent({ user }) {
 						<label>New Master Agent Id:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="master_agent_id"
 							placeholder="Master agent id number"
 							defaultValue={updateMasterAgentId}
@@ -79,7 +97,7 @@ function MasterAgent({ user }) {
 						<label>Whatsapp number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="wp_number"
 							placeholder="Whatsapp number"
 							defaultValue={updateWpNumber}
@@ -93,7 +111,7 @@ function MasterAgent({ user }) {
 						<label>Phone number:</label>
 						<input
 							required
-							type="number"
+							type="text"
 							name="phn_number"
 							placeholder="Phone number"
 							defaultValue={updatePhnNumber}
@@ -102,12 +120,36 @@ function MasterAgent({ user }) {
 						/>
 					</div>
 
-					<button
-						type="submit"
-						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
-					>
-						Update {user?.role?.split("_").join(" ")}
-					</button>
+					{/* Phone number */}
+					<div className="flex flex-col w-full space-y-1">
+						<label>Complain number:</label>
+						<input
+							required
+							type="text"
+							name="complain_number"
+							placeholder="Phone number"
+							defaultValue={complainNumber}
+							onChange={(e) => setComplainNumber(e.target.value)}
+							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
+						/>
+					</div>
+
+					<div className="flex items-center flex-wrap">
+						<button
+							type="submit"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
+						>
+							Update {user?.role?.split("_").join(" ")}
+						</button>
+
+						<button
+							onClick={() => handleDelete(user?._id)}
+							type="button"
+							className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-xs md:text-lg font-medium mx-auto px-4"
+						>
+							Delete this {user?.role?.split("_").join(" ")}
+						</button>
+					</div>
 				</form>
 			</div>
 		</>
@@ -115,7 +157,7 @@ function MasterAgent({ user }) {
 }
 
 MasterAgent.propTypes = {
-	user: PropTypes.object.isRequired,
+	user: PropTypes.object,
 };
 
 export default MasterAgent;

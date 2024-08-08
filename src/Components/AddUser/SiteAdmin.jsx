@@ -79,7 +79,7 @@ function SiteAdmin() {
 					<label>Admin Id:</label>
 					<input
 						required
-						type="number"
+						type="text"
 						name="admin_id"
 						placeholder="Admin id"
 						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -91,7 +91,7 @@ function SiteAdmin() {
 					<label>Whatsapp no:</label>
 					<input
 						required
-						type="number"
+						type="text"
 						name="wp_number"
 						placeholder="Whatsapp number"
 						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -103,7 +103,7 @@ function SiteAdmin() {
 					<label>Telegram no:</label>
 					<input
 						required
-						type="number"
+						type="text"
 						name="tele_number"
 						placeholder="Telegram Number"
 						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
@@ -115,7 +115,7 @@ function SiteAdmin() {
 					<label>Phone no:</label>
 					<input
 						required
-						type="number"
+						type="text"
 						name="phn_number"
 						placeholder="Phone Number"
 						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
