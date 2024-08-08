@@ -93,7 +93,7 @@ function SubAdmin() {
 				<div>
 					{/* Title */}
 					<h1 className="text-black text-center my-3 text-xl md:text-3xl font-bold">
-						VELKI SUPER AGENT LIST
+						VELKI SUB ADMIN LIST
 					</h1>
 
 					{datas?.map((data) => (

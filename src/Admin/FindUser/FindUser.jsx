@@ -3,12 +3,23 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaWhatsapp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 function FindUser() {
+	const { pathname } = useLocation();
 	const { user: loginUser } = useContext(AuthContext);
-	const [addRole, setAddRole] = useState("admin");
+	const [addRole, setAddRole] = useState(
+		pathname === "/subAdmin"
+			? "sub_admin"
+			: pathname === "/superAgent"
+			? "super_agent"
+			: pathname === "/masterAgent"
+			? "master_agent"
+			: pathname === "/findUser"
+			? "admin"
+			: "master",
+	);
 	const [error, setError] = useState("");
 	const [user, setUser] = useState(null);
 	const [under, setUnder] = useState([]);
@@ -97,94 +108,90 @@ function FindUser() {
 	return (
 		<>
 			<div className="p-4">
-				{/* select form */}
-				<form
-					onChange={handleRole}
-					className="text-center text-lg md:text-xl font-semibold"
-				>
-					{/* select role */}
-					<label htmlFor="role">Find: </label>
-					<select
-						name="role"
-						defaultValue="admin"
-						className="text-[#C00] ml-2 outline-none border px-2 py-1 rounded-md cursor-pointer"
-					>
-						<option value="admin">Site-Admin</option>
-						<option value="sub_admin">Sub Admin</option>
-						<option value="super_agent">Super Agent</option>
-						<option value="master_agent">Master Agent</option>
-						<option value="customer_service">
-							Customer Service
-						</option>
-					</select>
-				</form>
+				<h1 className="text-center mb-3 text-sm md:text-lg lg:text-xl font-semibold">
+					এজেন্ট এর আইডি নাম্বার দিয়ে খুজুনঃ
+				</h1>
 
-				{/* dynamic title  */}
-				<div className="text-center">
-					<h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-[#C00] cursor-pointer hover:underline transition-all ease-linear my-2 md:my-4">
-						{addRole === "admin"
-							? "Find Site Admin"
-							: addRole === "sub_admin"
-							? "Find Sub Admin"
-							: addRole === "super_agent"
-							? "Find Super Agent"
-							: addRole === "master_agent"
-							? "Find Master Agent"
-							: "Find Customer Service"}
-					</h1>
+				<div className="w-[90%] md:w-[60%] lg:w-[40%] mx-auto shadow border rounded p-2">
+					{/* select form */}
+					<form onChange={handleRole} className="mb-5">
+						{/* select role */}
+						<label htmlFor="role">Agent Type: </label>
+						<select
+							name="role"
+							defaultValue={
+								pathname === "/subAdmin"
+									? "sub_admin"
+									: pathname === "/superAgent"
+									? "super_agent"
+									: pathname === "/masterAgent"
+									? "master_agent"
+									: pathname === "findUser"
+									? "admin"
+									: "master"
+							}
+							className="w-full border p-1 pl-2 mt-1 rounded outline-none"
+						>
+							{pathname === "/findUser" ? (
+								<>
+									<option value="admin">সাইট এডমিন</option>
+									<option value="sub_admin">সাব এডমিন</option>
+									<option value="super_agent">
+										সুপার এজেন্ট
+									</option>
+									<option value="master_agent">
+										মাষ্টার এজেন্ট
+									</option>
+									<option value="customer_service">
+										কাস্টমার সার্ভিস লিস্ট
+									</option>
+								</>
+							) : (
+								<>
+									<option value="sub_admin">সাব এডমিন</option>
+									<option value="super_agent">
+										সুপার এজেন্ট
+									</option>
+									<option value="master_agent">
+										মাষ্টার এজেন্ট
+									</option>
+								</>
+							)}
+						</select>
+					</form>
+
+					{/* find form */}
+					<form onSubmit={handleFind} className="">
+						{addRole === "admin" ? (
+							<div className="flex flex-col w-full space-y-1">
+								<label htmlFor="id_no">Username:</label>
+								<input
+									required
+									name="username"
+									type="text"
+									className="border p-2 rounded outline-none w-full mt-1 text-xs md:text-sm"
+								/>
+							</div>
+						) : (
+							<div className="">
+								<label htmlFor="id_no">Agent ID:</label>
+								<input
+									required
+									name="idOrPhoneNumber"
+									type="text"
+									className="border p-1 pl-2 rounded outline-none w-full mt-1 text-xs md:text-sm"
+								/>
+							</div>
+						)}
+
+						<button
+							type="submit"
+							className="bg-[#48ac4d] hover:bg-[#45A049] py-2 px-4 rounded text-white my-2 transition-all"
+						>
+							Submit
+						</button>
+					</form>
 				</div>
-
-				{/* find form */}
-				<form
-					onSubmit={handleFind}
-					className="border p-6 rounded-md flex flex-col space-y-4"
-				>
-					{addRole === "admin" ? (
-						<div className="flex flex-col w-full space-y-1">
-							<label htmlFor="id_no">Username:</label>
-							<input
-								required
-								name="username"
-								type="text"
-								placeholder="Enter username"
-								className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-							/>
-						</div>
-					) : (
-						<div className="flex flex-col w-full space-y-1">
-							<label htmlFor="id_no">
-								ID NO or Phone Number:
-							</label>
-							<input
-								required
-								name="idOrPhoneNumber"
-								type="number"
-								placeholder="Enter id no or phone number"
-								className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-							/>
-						</div>
-					)}
-
-					<button
-						type="submit"
-						className="border-2 border-b-[#C00] rounded-md py-2 border-t-transparent border-x-transparent hover:border-[#C00] hover:bg-[#C00] hover:text-white transition-all ease-linear text-lg font-medium mx-auto px-4"
-					>
-						Find{" "}
-						{
-							<span className="">
-								{addRole === "admin"
-									? "site admin"
-									: addRole === "sub_admin"
-									? "sub admin"
-									: addRole === "super_agent"
-									? "super agent"
-									: addRole === "master_agent"
-									? "master agent"
-									: "customer service"}
-							</span>
-						}
-					</button>
-				</form>
 
 				<hr className="my-4" />
 
