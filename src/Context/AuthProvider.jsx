@@ -24,10 +24,17 @@ const AuthProvider = ({ children }) => {
 			.catch((e) => toast.error(e.response.data));
 	};
 
+	// logout
+	const logout = () => {
+		setUser(null);
+		localStorage.removeItem("user");
+	};
+
 	// all passed data in here
 	const authInfo = {
 		login,
 		user,
+		logout,
 	};
 
 	return (

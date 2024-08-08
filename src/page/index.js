@@ -1,6 +1,5 @@
 import AccountCreate from "./AccountCreate/AccountCreate";
 import AgentNewNumber from "./AgentNewNumber/AgentNewNumber";
-import AgentVerify from "./AgentVerify/AgentVerify";
 import Community from "./Community/Community";
 import CustomerService from "./CustomerService/CustomerService";
 import ErrorPage from "./ErrorPage/ErrorPage";
@@ -15,11 +14,11 @@ import SuperAgent from "./SuperAgent/SuperAgent";
 import AutoDeposit from "./AutoDeposit/AutoDeposit";
 import Authentication from "./Authentication/Authentication";
 import Homepage from "./Homepage/Homepage";
+import AgentKoto from "./AgentKoto/AgentKoto";
 
 export {
 	AccountCreate,
 	AgentNewNumber,
-	AgentVerify,
 	AutoDeposit,
 	Authentication,
 	Community,
@@ -34,4 +33,5 @@ export {
 	SubAdmin,
 	SuperAgent,
 	Homepage,
+	AgentKoto,
 };

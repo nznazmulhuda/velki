@@ -27,7 +27,7 @@ function Homepage() {
 				<div className="bg-[#D4D4D4] border border-[#FAFAFA] flex items-center justify-center mb-2 md:mb-3 lg:mb-4">
 					<Link
 						to={"/home"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
 					>
 						<IoHome />
 						Home
@@ -35,7 +35,7 @@ function Homepage() {
 
 					<Link
 						to={"/CustomerService"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 border-r-2 px-2 md:px-4 uppercase"
 					>
 						<FaQuestionCircle />
 						Customer Service
@@ -43,7 +43,7 @@ function Homepage() {
 
 					<Link
 						to={"/agentNewNumber"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 px-4 uppercase"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 md:py-1 px-4 uppercase"
 					>
 						<IoSettings />
 						Old/New
@@ -53,7 +53,7 @@ function Homepage() {
 				<div className="bg-[#D4D4D4] border border-[#FAFAFA] flex items-center justify-center mb-2">
 					<Link
 						to={"/siteAdmin"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
 					>
 						<IoSettings />
 						admin
@@ -61,7 +61,7 @@ function Homepage() {
 
 					<Link
 						to={"/superAgent"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4 border-x-2"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4 border-x-2"
 					>
 						<IoSettings />
 						super
@@ -69,7 +69,7 @@ function Homepage() {
 
 					<Link
 						to={"/masterAgent"}
-						className="text-[#444444] text-[15px] md:text-xl lg:text-3xl hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
+						className="text-[#444444] text-[12px] md:text-[16px] lg:text-[20px] hover:text-[#FF9900] hover:bg-[#444444] transition-all ease-in flex items-center gap-1 font-bold py-1 uppercase md:py-1 px-4"
 					>
 						<IoSettings />
 						master

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { AuthContext } from "../../Context/AuthProvider";
 
 function Dashboard() {
+	const { logout } = useContext(AuthContext);
 	const [admins, setAdmins] = useState({});
 	const [subAdmins, setSubAdmins] = useState({});
 	const [superAgents, setSuperAgents] = useState({});
@@ -39,8 +41,14 @@ function Dashboard() {
 	return (
 		<>
 			<div className="p-4">
-				<h1 className="text-center mb-5 text-xl md:text-2xl lg:text-3xl font-bold text-[#C00] hover:underline cursor-pointer">
-					Dashboard
+				<h1 className="text-center mb-5 text-xl md:text-2xl lg:text-3xl font-bold text-[#C00] hover:underline cursor-pointer flex flex-col md:flex-row md:justify-center items-center gap-2">
+					Dashboard{" "}
+					<span
+						onClick={logout}
+						className="text-xs border py-1 px-4 rounded-md border-[#C00] hover:bg-[#C00] hover:text-white transition-all"
+					>
+						Logout
+					</span>
 				</h1>
 
 				<div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-center">

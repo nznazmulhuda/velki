@@ -49,11 +49,19 @@ function SectionThree() {
 
 				{/* links */}
 				<div className="flex flex-col items-center justify-center py-5">
-					<a className="text-[#C00] text-sm md:text-2xl hover:underline transition-all ease-in cursor-pointer">
+					<a
+						href="https://www.wickspin24.live"
+						target="_blank"
+						className="text-[#C00] text-sm md:text-2xl hover:underline transition-all ease-in cursor-pointer"
+					>
 						ভেল্কি সাইটের প্রক্সী লিঙ্কঃ www.wickspin24.live
 					</a>
 
-					<a className="text-[#C00] text-sm md:text-2xl hover:underline transition-all ease-in cursor-pointer">
+					<a
+						href="https://www.wickspin24.live"
+						target="_blank"
+						className="text-[#C00] text-sm md:text-2xl hover:underline transition-all ease-in cursor-pointer"
+					>
 						ভেল্কি সাইটের প্রক্সী লিঙ্কঃ www.wickspin24.live
 					</a>
 				</div>

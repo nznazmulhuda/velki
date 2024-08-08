@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import { AddUser, Dashboard, FindUser, UpdateUser } from "../Admin";
 import {
 	AccountCreate,
+	AgentKoto,
 	AgentNewNumber,
 	Authentication,
 	AutoDeposit,
@@ -55,6 +56,10 @@ export const Routes = createBrowserRouter([
 			{
 				path: "/authentication",
 				element: <Authentication />,
+			},
+			{
+				path: "/allAgentType",
+				element: <AgentKoto />,
 			},
 			{
 				path: "/community",
