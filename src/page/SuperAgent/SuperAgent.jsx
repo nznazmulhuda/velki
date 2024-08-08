@@ -128,14 +128,14 @@ function SuperAgent() {
 													key={id}
 													className={` ${
 														id % 2 !== 0
-															? "text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
-															: "text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+															? "text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
+															: "text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 													}`}
 												>
 													<td>
 														{agent?.super_agent_id}
 													</td>
-													<td>সুপার</td>
+													<td>সুপার এজেন্ট</td>
 													<td className="relative">
 														<a
 															href={`https://wa.me/${agent.wp_number}`}
@@ -143,7 +143,7 @@ function SuperAgent() {
 															rel="noopener noreferrer"
 															className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
 														>
-															<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+															<FaWhatsapp className="text-green-600 text-[22px]" />
 														</a>
 													</td>
 													<td>

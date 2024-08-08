@@ -129,8 +129,8 @@ function MasterAgent() {
 													key={id}
 													className={` ${
 														id % 2 === 0
-															? "text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
-															: "text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+															? "text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
+															: "text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 													}`}
 												>
 													<td>
@@ -144,7 +144,7 @@ function MasterAgent() {
 															rel="noopener noreferrer"
 															className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
 														>
-															<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+															<FaWhatsapp className="text-green-600 text-[22px]" />
 														</a>
 													</td>
 													<td>

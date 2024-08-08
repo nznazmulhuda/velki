@@ -12,7 +12,7 @@ function SiteAdmin() {
 			.then((res) => setAdmins(res.data))
 			.catch(() => toast.error("Somthing went wrong!"));
 	}, []);
-    
+
 	return (
 		<>
 			<Helmet>
@@ -94,7 +94,7 @@ function SiteAdmin() {
 								id % 2 === 0 ? (
 									<tr
 										key={id}
-										className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 									>
 										<td>{admin?.admin_id}</td>
 
@@ -107,7 +107,7 @@ function SiteAdmin() {
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
 											>
-												<FaTelegram className="text-blue-500 text-sm md:text-lg block" />
+												<FaTelegram className="text-blue-500 text-xl block" />
 											</a>
 										</td>
 
@@ -118,7 +118,7 @@ function SiteAdmin() {
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
 											>
-												<FaWhatsapp className="text-green-600 text-sm md:text-lg text-center" />
+												<FaWhatsapp className="text-green-600 text-[22px] text-center" />
 											</a>
 										</td>
 
@@ -136,7 +136,7 @@ function SiteAdmin() {
 								) : (
 									<tr
 										key={id}
-										className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
 									>
 										<td>{admin?.admin_id}</td>
 
@@ -149,7 +149,7 @@ function SiteAdmin() {
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
 											>
-												<FaTelegram className="text-blue-500 text-sm md:text-lg block" />
+												<FaTelegram className="text-blue-500 text-xl block" />
 											</a>
 										</td>
 
@@ -160,7 +160,7 @@ function SiteAdmin() {
 												rel="noopener noreferrer"
 												className="flex items-center justify-center w-full"
 											>
-												<FaWhatsapp className="text-green-600 text-sm md:text-lg text-center" />
+												<FaWhatsapp className="text-green-600 text-[22px] text-center" />
 											</a>
 										</td>
 

@@ -230,7 +230,7 @@ function FindUser() {
 							</thead>
 
 							<tbody>
-								<tr className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm">
+								<tr className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold">
 									<td>
 										{addRole === "admin"
 											? user?.username
@@ -262,7 +262,7 @@ function FindUser() {
 											rel="noopener noreferrer"
 											className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 										>
-											<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+											<FaWhatsapp className="text-green-600 text-[22px]" />
 										</a>
 									</td>
 
@@ -336,7 +336,7 @@ function FindUser() {
 												id % 2 === 0 ? (
 													<tr
 														key={id}
-														className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+														className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 													>
 														<td>
 															{addRole === "admin"
@@ -364,7 +364,7 @@ function FindUser() {
 																rel="noopener noreferrer"
 																className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 															>
-																<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+																<FaWhatsapp className="text-green-600 text-[22px]" />
 															</a>
 														</td>
 
@@ -395,7 +395,7 @@ function FindUser() {
 												) : (
 													<tr
 														key={id}
-														className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
+														className="text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
 													>
 														<td>
 															{addRole === "admin"
@@ -423,7 +423,7 @@ function FindUser() {
 																rel="noopener noreferrer"
 																className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 															>
-																<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+																<FaWhatsapp className="text-green-600 text-[22px]" />
 															</a>
 														</td>
 

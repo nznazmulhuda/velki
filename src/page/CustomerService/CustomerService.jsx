@@ -58,7 +58,7 @@ function CustomerService() {
 								id % 2 === 0 ? (
 									<tr
 										key={id}
-										className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 									>
 										<td>{customer.customer_service_id}</td>
 										<td>{customer.type}</td>
@@ -68,7 +68,7 @@ function CustomerService() {
 												target="_blank"
 												rel="noopener noreferrer"
 											>
-												<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+												<FaWhatsapp className="text-green-600 text-[22px]" />
 											</a>
 										</td>
 										<td>
@@ -85,7 +85,7 @@ function CustomerService() {
 								) : (
 									<tr
 										key={id}
-										className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
 									>
 										<td>{customer.customer_service_id}</td>
 										<td>{customer.type}</td>
@@ -95,7 +95,7 @@ function CustomerService() {
 												target="_blank"
 												rel="noopener noreferrer"
 											>
-												<FaWhatsapp className="text-green-600 text-sm md:text-lg" />
+												<FaWhatsapp className="text-green-600 text-[22px]" />
 											</a>
 										</td>
 										<td>

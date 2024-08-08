@@ -102,7 +102,7 @@ function AgentNewNumber() {
 								id % 2 === 0 ? (
 									<tr
 										key={id}
-										className="text-center border bg-[#EFEFEF] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 									>
 										<td className="line-through text-[#C00]">
 											{data.role === "site_admin"
@@ -142,7 +142,7 @@ function AgentNewNumber() {
 								) : (
 									<tr
 										key={id}
-										className="text-center border bg-[#FFF6F3] h-[5vh] text-xs md:text-sm"
+										className="text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
 									>
 										<td className="line-through text-[#C00]">
 											{data.role === "site_admin"
