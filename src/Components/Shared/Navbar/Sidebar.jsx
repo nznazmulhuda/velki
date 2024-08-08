@@ -177,30 +177,6 @@ function Sidebar({ setIsSidebar }) {
 					>
 						কাস্টমার সার্ভিস লিষ্ট
 					</NavLink>
-
-					<NavLink
-						onClick={() => setIsSidebar(false)}
-						to={"/community"}
-						className={({ isActive }) =>
-							isActive
-								? "bg-[#C00] p-2 text-gray-300 overflow-hidden block w-full"
-								: "bg-transparent p-2 text-gray-300 overflow-hidden block"
-						}
-					>
-						ভেল্কি কমিউনিটি
-					</NavLink>
-
-					<NavLink
-						onClick={() => setIsSidebar(false)}
-						to={"/forum"}
-						className={({ isActive }) =>
-							isActive
-								? "bg-[#C00] p-2 text-gray-300 overflow-hidden block w-full"
-								: "bg-transparent p-2 text-gray-300 overflow-hidden block"
-						}
-					>
-						ভেল্কি ফোরাম
-					</NavLink>
 				</div>
 			</div>
 		</div>

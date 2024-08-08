@@ -26,7 +26,7 @@ function Navbar() {
 				id="top"
 			>
 				<div className="flex justify-between items-center">
-					<Link to={"/"} className="flex items-center gap-2">
+					<div className="flex items-center gap-2">
 						<button
 							onClick={() => setIsSidebar(true)}
 							className="p-4 hover:bg-[#E5E5E5] border-r"
@@ -34,8 +34,10 @@ function Navbar() {
 							<MdMenu size={18} />
 						</button>
 
-						<img src={NavbarImage} className="w-20" alt="" />
-					</Link>
+						<Link to={"/"}>
+							<img src={NavbarImage} className="w-20" alt="" />
+						</Link>
+					</div>
 
 					<div>
 						<NavLink

@@ -20,6 +20,7 @@ import {
 	SuperAgent,
 } from "../page";
 import PrivateRoute from "./PrivateRoute";
+import { Agent, Facebook, Lenden, Master, Ovijog, Sorto } from "../page/Faq";
 
 export const Routes = createBrowserRouter([
 	{
@@ -90,6 +91,30 @@ export const Routes = createBrowserRouter([
 			{
 				path: "/superAgent",
 				element: <SuperAgent />,
+			},
+			{
+				path: "/lenden",
+				element: <Lenden />,
+			},
+			{
+				path: "/law",
+				element: <Sorto />,
+			},
+			{
+				path: "/facebookGroup",
+				element: <Facebook />,
+			},
+			{
+				path: "/howToBeAgent",
+				element: <Agent />,
+			},
+			{
+				path: "/howToBeMasterAgent",
+				element: <Master />,
+			},
+			{
+				path: "/ovijog",
+				element: <Ovijog />,
 			},
 			{
 				path: "/dashboard",

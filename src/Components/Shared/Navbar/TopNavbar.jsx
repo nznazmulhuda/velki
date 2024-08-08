@@ -47,6 +47,15 @@ function TopNavbar() {
 						<button>কাস্টমার সার্ভিস</button>
 					</NavLink>
 				</div>
+
+				<div>
+					<NavLink
+						to={"/authentication"}
+						className={"text-[#c00] p-4 hover:bg-[#E5E5E5]"}
+					>
+						<button>Login</button>
+					</NavLink>
+				</div>
 			</div>
 
 			<hr className="-mt-[2px] p-0 h-[1px] bg-[#E5E5E5]" />

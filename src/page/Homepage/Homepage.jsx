@@ -187,12 +187,13 @@ function Homepage() {
 											হোয়াটসাপ এপ টি আপনার মোবাইলে আগে
 											থেকেই থাকতে হবে। না থাকলে গুগুল প্লে
 											থেকে ইন্সটল করে নিন। <br />
-											<a
-												href="https://www.youtube.com/watch?v=qw1CVt43VKw"
+											<Link
+												to={"/masterAgent"}
+												href=""
 												className="text-blue-700 underline"
 											>
 												অনলাইন মাষ্টার এজেন্ট লিস্টঃ
-											</a>
+											</Link>
 										</p>
 									</div>
 								</div>
@@ -217,36 +218,39 @@ function Homepage() {
 								<div className="bg-[#FBFEDF] p-2 md:p-4">
 									<div className="bg-[#FBFEDF] p-2">
 										<p className="text-lg md:text-xl text-center">
-											<a
+											<Link
+												to={"/superAgent"}
 												href="#"
 												className="text-blue-700 underline"
 											>
 												অনলাইন সুপার এজেন্ট লিস্টঃ
-											</a>{" "}
+											</Link>{" "}
 											সুপার এজেন্ট রা, ইউজার একাউন্ট এবং
 											মাষ্টার এজেন্ট একাউন্ট খুলে দিতে
 											পারেন। কোন সুপার এজেন্ট এর নামে
 											অভিযোগ থাকলে - সরাসরি এডমিন কে
 											জানাতে হবে। উপরে মেনু তে এডমিন লিষ্ট
 											দেয়া আছে। <br />
-											<a
+											<Link
+												to={"/masterAgent"}
 												href="#"
 												className="text-blue-700 underline"
 											>
 												অনলাইন মাষ্টার এজেন্ট লিস্টঃ
-											</a>{" "}
+											</Link>{" "}
 											অনলাইন মাষ্টার এজেন্ট রা, শুধু ইউজার
 											একাউন্ট একাউন্ট খুলে দিতে পারেন। কোন
 											মাষ্টার এজেন্ট এর নামে অভিযোগ থাকলে
 											- সরাসরি সুপার এজেন্ট এর কাছে অভিযোগ
 											করতে হবে। <br />
-											<a
+											<Link
+												to={"/superAgent"}
 												href="#"
 												className="text-blue-700 underline"
 											>
 												বিস্তারিত জানতে এই লিঙ্ক এ ক্লিক
 												করুন।
-											</a>{" "}
+											</Link>{" "}
 											<br />
 											লোকাল মাষ্টার এজেন্ট লিস্টঃ লোকাল
 											মাষ্টার এজেন্ট রা, শুধু ইউজার
