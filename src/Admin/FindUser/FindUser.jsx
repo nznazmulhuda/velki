@@ -17,7 +17,7 @@ function FindUser() {
 			: pathname === "/masterAgent"
 			? "master_agent"
 			: pathname === "/findUser"
-			? "admin"
+			? "site_admin"
 			: "master",
 	);
 	const [error, setError] = useState("");
@@ -38,49 +38,30 @@ function FindUser() {
 	const handleFind = (e) => {
 		e.preventDefault();
 
-		if (addRole === "admin") {
-			const username = e.target.username.value;
+		const idOrPhoneNumber = e.target.idOrPhoneNumber.value;
 
-			// api call
-			axios
-				.get(`/find_user?role=${addRole}&username=${username}`)
-				.then((res) => {
-					setError("");
-					setUser(res.data);
-					setUnder(res.data.sub_admins);
-					e.target.reset();
-				})
-				.catch((err) => {
-					toast.error(err.message);
-					setError(err.response.data);
-					setUser(null);
-				});
-		} else {
-			const idOrPhoneNumber = e.target.idOrPhoneNumber.value;
-
-			// api call
-			axios
-				.get(
-					`/find_user?role=${addRole}&idOrPhoneNumber=${idOrPhoneNumber}`,
-				)
-				.then((res) => {
-					setError("");
-					setUser(res.data);
-					setUnder(
-						addRole === "super_agent"
-							? res.data.master_agents
-							: addRole === "sub_admin"
-							? res.data.super_agents
-							: [],
-					);
-					e.target.reset();
-				})
-				.catch((err) => {
-					toast.error(err.response.data);
-					setError(err.response.data);
-					setUser(null);
-				});
-		}
+		// api call
+		axios
+			.get(
+				`/find_user?role=${addRole}&idOrPhoneNumber=${idOrPhoneNumber}`,
+			)
+			.then((res) => {
+				setError("");
+				setUser(res.data);
+				setUnder(
+					addRole === "super_agent"
+						? res.data.master_agents
+						: addRole === "sub_admin"
+						? res.data.super_agents
+						: [],
+				);
+				e.target.reset();
+			})
+			.catch((err) => {
+				toast.error(err.response.data);
+				setError(err.response.data);
+				setUser(null);
+			});
 	};
 
 	useEffect(() => {
@@ -98,7 +79,7 @@ function FindUser() {
 	}, [under]);
 
 	useEffect(() => {
-		addRole === "admin"
+		addRole === "site_admin"
 			? setUnderAgents(user?.sub_admins || [])
 			: addRole === "sub_admin"
 			? setUnderAgents(user?.super_agents || [])
@@ -127,14 +108,16 @@ function FindUser() {
 									: pathname === "/masterAgent"
 									? "master_agent"
 									: pathname === "findUser"
-									? "admin"
+									? "site_admin"
 									: "master"
 							}
 							className="w-full border p-1 pl-2 mt-1 rounded outline-none"
 						>
 							{pathname === "/findUser" ? (
 								<>
-									<option value="admin">সাইট এডমিন</option>
+									<option value="site_admin">
+										সাইট এডমিন
+									</option>
 									<option value="sub_admin">সাব এডমিন</option>
 									<option value="super_agent">
 										সুপার এজেন্ট
@@ -162,27 +145,15 @@ function FindUser() {
 
 					{/* find form */}
 					<form onSubmit={handleFind} className="">
-						{addRole === "admin" ? (
-							<div className="flex flex-col w-full space-y-1">
-								<label htmlFor="id_no">Username:</label>
-								<input
-									required
-									name="username"
-									type="text"
-									className="border p-2 rounded outline-none w-full mt-1 text-xs md:text-sm"
-								/>
-							</div>
-						) : (
-							<div className="">
-								<label htmlFor="id_no">Agent ID:</label>
-								<input
-									required
-									name="idOrPhoneNumber"
-									type="text"
-									className="border p-1 pl-2 rounded outline-none w-full mt-1 text-xs md:text-sm"
-								/>
-							</div>
-						)}
+						<div className="">
+							<label htmlFor="id_no">Agent ID:</label>
+							<input
+								required
+								name="idOrPhoneNumber"
+								type="text"
+								className="border p-1 pl-2 rounded outline-none w-full mt-1 text-xs md:text-sm"
+							/>
+						</div>
 
 						<button
 							type="submit"
@@ -206,7 +177,7 @@ function FindUser() {
 					<>
 						{/* find details title */}
 						<h1 className="text-sm md:text-lg lg:text-xl font-bold text-[#C00] cursor-pointer hover:underline transition-all ease-linear my-2 md:my-4 text-center">
-							{addRole === "admin"
+							{addRole === "site_admin"
 								? "Site Admin"
 								: addRole === "sub_admin"
 								? "Sub Admin"
@@ -232,8 +203,8 @@ function FindUser() {
 							<tbody>
 								<tr className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold">
 									<td>
-										{addRole === "admin"
-											? user?.username
+										{addRole === "site_admin"
+											? user?.admin_id
 											: addRole === "sub_admin"
 											? user?.agent_id
 											: addRole === "super_agent"
@@ -244,7 +215,7 @@ function FindUser() {
 									</td>
 
 									<td>
-										{addRole === "admin"
+										{addRole === "site_admin"
 											? "Site Admin"
 											: addRole === "sub_admin"
 											? "Sub Admin"
@@ -298,18 +269,18 @@ function FindUser() {
 
 									{/* find users under agent title */}
 									<h1 className="text-sm md:text-xl text-center font-semibold text-[#000000c5] my-2 mt-4">
-										{addRole === "admin"
+										{addRole === "site_admin"
 											? "সাইট এডমিন "
 											: addRole === "sub_admin"
 											? "সাব এডমিন"
 											: "সুপার এজেন্ট"}{" "}
-										{addRole === "admin"
+										{addRole === "site_admin"
 											? user?.username
 											: addRole === "sub_admin"
 											? user?.agent_id
 											: user?.super_agent_id}{" "}
 										এর অধীনে সর্বমোট{" "}
-										{addRole === "admin"
+										{addRole === "site_admin"
 											? "সাব এডমিন"
 											: addRole === "sub_admin"
 											? "সুপার এজেন্ট"
@@ -339,7 +310,8 @@ function FindUser() {
 														className="text-center border bg-[#EFEFEF] h-[5vh] font-semibold"
 													>
 														<td>
-															{addRole === "admin"
+															{addRole ===
+															"site_admin"
 																? agent?.agent_id
 																: addRole ===
 																  "sub_admin"
@@ -398,7 +370,8 @@ function FindUser() {
 														className="text-center border bg-[#FFF6F3] h-[5vh] font-semibold"
 													>
 														<td>
-															{addRole === "admin"
+															{addRole ===
+															"site_admin"
 																? agent?.agent_id
 																: addRole ===
 																  "sub_admin"

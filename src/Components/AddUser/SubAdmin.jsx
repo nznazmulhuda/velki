@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 function SubAdmin() {
-	const { user } = useContext(AuthContext);
 	// register new user
 	const register = (e) => {
 		e.preventDefault();
@@ -14,8 +11,7 @@ function SubAdmin() {
 		const phn_number = form.phn_number.value;
 		const complain_number = form.complain_number.value;
 		const date = new Date().toLocaleString();
-		const under_id = user._id;
-		const admin = user.username;
+		const admin_id = form.admin_id.value;
 		const role = "sub_admin";
 		const super_agents = [];
 		const old_agent_id = "";
@@ -28,13 +24,12 @@ function SubAdmin() {
 			wp_number,
 			phn_number,
 			date,
-			under_id,
+			admin_id,
 			super_agents,
 			old_agent_id,
 			old_wp_number,
 			old_phn_number,
 			complain_number,
-			admin,
 		};
 
 		// api call
@@ -58,6 +53,18 @@ function SubAdmin() {
 					onSubmit={register}
 					className="border p-6 rounded-md flex flex-col space-y-4"
 				>
+					{/* agent id */}
+					<div className="flex flex-col w-full space-y-1">
+						<label>Admin Id:</label>
+						<input
+							required
+							type="text"
+							name="admin_id"
+							placeholder="Admin id number"
+							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
+						/>
+					</div>
+
 					{/* agent id */}
 					<div className="flex flex-col w-full space-y-1">
 						<label>Agent Id:</label>

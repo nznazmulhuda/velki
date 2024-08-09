@@ -22,6 +22,7 @@ import {
 } from "../page";
 import PrivateRoute from "./PrivateRoute";
 import { Agent, Facebook, Lenden, Master, Ovijog, Sorto } from "../page/Faq";
+import Register from "../Test/Register";
 
 export const Routes = createBrowserRouter([
 	{
@@ -32,6 +33,10 @@ export const Routes = createBrowserRouter([
 			{
 				path: "/",
 				element: <Homepage />,
+			},
+			{
+				path: "/register",
+				element: <Register />,
 			},
 			{
 				path: "/home",

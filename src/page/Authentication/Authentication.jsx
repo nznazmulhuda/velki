@@ -30,7 +30,7 @@ function Authentication() {
 	return (
 		<div className="p-4">
 			<h1 className="text-xl md:text-2xl lg:text-3xl text-center mb-4 font-bold">
-				Admin{" "}
+				Editor{" "}
 				<span className="text-[#C00] hover:underline transition-all ease-in cursor-pointer">
 					Login
 				</span>

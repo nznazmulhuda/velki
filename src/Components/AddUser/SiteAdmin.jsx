@@ -6,54 +6,43 @@ function SiteAdmin() {
 	const register = (e) => {
 		e.preventDefault();
 		const form = e.target;
-		const email = form.email.value;
-		const password = form.password.value;
+		const sub_admins = [];
+		const old_admin_id = "";
+		const old_wp_number = "";
+		const old_phn_number = "";
+		const old_tele_number = "";
 		const username = form.username.value;
 		const admin_id = form.admin_id.value;
-		const old_admin_id = "";
 		const wp_number = form.wp_number.value;
-		const old_wp_number = "";
-		const tele_number = form.tele_number.value;
-		const old_tele_number = "";
 		const phn_number = form.phn_number.value;
-		const old_phn_number = "";
-		const confirmPassword = form.confirmPassword.value;
-		const sub_admins = [];
+		const tele_number = form.tele_number.value;
 
-		if (password === confirmPassword) {
-			const date = new Date().toLocaleString();
-			const user = {
-				username,
-				email,
-				password,
-				date,
-				sub_admins,
-				role: "admin",
-				admin_id,
-				old_admin_id,
-				wp_number,
-				old_wp_number,
-				tele_number,
-				old_tele_number,
-				phn_number,
-				old_phn_number,
-			};
+		const date = new Date().toLocaleString();
+		const user = {
+			date,
+			sub_admins,
+			role: "site_admin",
+			admin_id,
+			old_admin_id,
+			wp_number,
+			old_wp_number,
+			tele_number,
+			old_tele_number,
+			phn_number,
+			old_phn_number,
+			username,
+		};
 
-			// api call to register new user with role admin
-			axios
-				.post("/register", user)
-				.then((res) => {
-					if (res.data.insertedId) {
-						toast.success("New admin added successfully!");
-						form.reset();
-					}
-				})
-				.catch((e) => toast.error(e.message));
-		} else {
-			form.password.value = "";
-			form.confirmPassword.value = "";
-			toast.error("Passwords do not match!");
-		}
+		// api call to register new user with role admin
+		axios
+			.post("/addAdmin", user)
+			.then((res) => {
+				if (res.data.insertedId) {
+					toast.success("New admin added successfully!");
+					form.reset();
+				}
+			})
+			.catch((e) => toast.error(e.message));
 	};
 
 	return (
@@ -118,42 +107,6 @@ function SiteAdmin() {
 						type="text"
 						name="phn_number"
 						placeholder="Phone Number"
-						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-					/>
-				</div>
-
-				{/* email */}
-				<div className="flex flex-col w-full space-y-1">
-					<label>Email:</label>
-					<input
-						required
-						type="email"
-						name="email"
-						placeholder="Email"
-						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-					/>
-				</div>
-
-				{/* password */}
-				<div className="flex flex-col w-full space-y-1">
-					<label>Password:</label>
-					<input
-						required
-						type="password"
-						name="password"
-						placeholder="Password"
-						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-					/>
-				</div>
-
-				{/* Confirm password */}
-				<div className="flex flex-col w-full space-y-1">
-					<label>Confirm Password:</label>
-					<input
-						required
-						type="password"
-						name="confirmPassword"
-						placeholder="Confirm password"
 						className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 					/>
 				</div>
