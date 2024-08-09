@@ -8,8 +8,8 @@ import { QueryProvider } from "./QueryProvider/QueryProvider.jsx";
 import axios from "axios";
 import AuthProvider from "./Context/AuthProvider.jsx";
 
-axios.defaults.baseURL = "http://localhost:5000";
-// axios.defaults.baseURL = "https://velki-server-pi.vercel.app";
+// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://velki-server-pi.vercel.app";
 
 // Render the app
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,19 +1,21 @@
 import axios from "axios";
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Customer({ user }) {
+	const old_type = user?.type;
+	const navigate = useNavigate();
+	const old_wp_number = user?.wp_number;
+	const old_phn_number = user?.phn_number;
+	const [type, setType] = useState(user?.type || "");
+	const old_customer_service_id = user?.customer_service_id;
+	const [wp_number, setWp_number] = useState(user?.wp_number || "");
+	const [phn_number, setPhn_number] = useState(user?.phn_number || "");
 	const [customer_service_id, setCustomer_service_id] = useState(
 		user?.customer_service_id || "",
 	);
-	const [type, setType] = useState(user?.type || "");
-	const [wp_number, setWp_number] = useState(user?.wp_number || "");
-	const [phn_number, setPhn_number] = useState(user?.phn_number || "");
-	const old_customer_service_id = user?.customer_service_id;
-	const old_wp_number = user?.wp_number;
-	const old_phn_number = user?.phn_number;
-	const old_type = user?.type;
 
 	// update customer details
 	const update = (e) => {
@@ -35,6 +37,7 @@ function Customer({ user }) {
 			.then((res) => {
 				if (res.data.matchedCount > 0) {
 					toast.success("Sub Admin updated successfully!");
+					navigate("/findUser");
 				} else {
 					toast.error("Something went wrong. Please try again!");
 				}
@@ -48,6 +51,7 @@ function Customer({ user }) {
 			.then((res) => {
 				if (res.data.deletedCount > 0) {
 					toast.success("Sub Admin deleted successfully!");
+					navigate("/findUser");
 				} else {
 					toast.error("Something went wrong. Please try again!");
 				}

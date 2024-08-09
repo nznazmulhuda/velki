@@ -2,110 +2,45 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function SiteAdmin({ user }) {
-	const [updateUsername, setUpdateUsername] = useState(user?.username || "");
-	const [updateEmail, setUpdateEmail] = useState(user?.email || "");
-	const [oldPassword, setOldPassword] = useState("");
-	const [newPassword, setNewPassword] = useState("");
+	const navigate = useNavigate();
+	const old_admin_id = user?.admin_id;
+	const old_wp_number = user?.wp_number;
+	const old_phn_number = user?.phn_number;
+	const old_tele_number = user?.tele_number;
 	const [admin_id, setAdminId] = useState(user?.admin_id || "");
 	const [wp_number, setWpNumber] = useState(user?.wp_number || "");
-	const [tele_number, setTeleNumber] = useState(user?.tele_number || "");
+	const [updateEmail, setUpdateEmail] = useState(user?.email || "");
 	const [phn_number, setPhnNumber] = useState(user?.phn_number || "");
-	const old_tele_number = user?.tele_number;
-	const old_wp_number = user?.wp_number;
-	const old_admin_id = user?.admin_id;
-	const old_phn_number = user?.phn_number;
+	const [tele_number, setTeleNumber] = useState(user?.tele_number || "");
+	const [updateUsername, setUpdateUsername] = useState(user?.username || "");
 
 	const update = (e) => {
 		e.preventDefault();
+		const updateValue = {
+			username: updateUsername,
+			email: updateEmail,
+			admin_id,
+			old_admin_id,
+			wp_number,
+			old_wp_number,
+			tele_number,
+			old_tele_number,
+			phn_number,
+			old_phn_number,
+		};
 
-		if (!newPassword) {
-			// password check
-			axios
-				.get(
-					`/validatePassword?password=${oldPassword}&hash=${user?.password}`,
-				)
-				.then((res) => {
-					if (res.data.isValid) {
-						const updateValue = {
-							username: updateUsername,
-							email: updateEmail,
-							admin_id,
-							old_admin_id,
-							wp_number,
-							old_wp_number,
-							tele_number,
-							old_tele_number,
-							phn_number,
-							old_phn_number,
-						};
-						// update user data
-						axios
-							.put(`/updateAdmin?id=${user?._id}`, updateValue)
-							.then((res) => {
-								if (res.data.matchedCount > 0) {
-									toast.success(
-										"Sub Admin updated successfully!",
-									);
-									setOldPassword("");
-									e.target.old_password.value = "";
-								} else {
-									toast.error(
-										"Something went wrong. Please try again!",
-									);
-								}
-							});
-					} else {
-						toast.error("Password incorrect. Please try again!");
-					}
-				})
-				.catch((err) => toast.error(err));
-		} else {
-			// password check
-			axios
-				.get(
-					`/validatePassword?password=${oldPassword}&hash=${user?.password}`,
-				)
-				.then((res) => {
-					if (res.data.isValid) {
-						const updateValue = {
-							username: updateUsername,
-							email: updateEmail,
-							newPassword: newPassword,
-							admin_id,
-							old_admin_id,
-							wp_number,
-							old_wp_number,
-							tele_number,
-							old_tele_number,
-							phn_number,
-							old_phn_number,
-						};
-						// update user data
-						axios
-							.put(`/updateAdmin?id=${user?._id}`, updateValue)
-							.then((res) => {
-								if (res.data.matchedCount > 0) {
-									toast.success(
-										"Sub Admin updated successfully!",
-									);
-									setNewPassword("");
-									setOldPassword("");
-									e.target.old_password.value = "";
-									e.target.new_password.value = "";
-								} else {
-									toast.error(
-										"Something went wrong. Please try again!",
-									);
-								}
-							});
-					} else {
-						toast.error("Password incorrect. Please try again!");
-					}
-				})
-				.catch((err) => toast.error(err));
-		}
+		// update user data
+		axios.put(`/updateAdmin?id=${user?._id}`, updateValue).then((res) => {
+			if (res.data.matchedCount > 0) {
+				toast.success("Sub Admin updated successfully!");
+				navigate("/findUser");
+			} else {
+				toast.error("Something went wrong. Please try again!");
+			}
+		});
 	};
 
 	const handleDelete = (id) => {
@@ -114,6 +49,7 @@ function SiteAdmin({ user }) {
 			.then((res) => {
 				if (res.data.deletedCount > 0) {
 					toast.success("Sub Admin deleted successfully!");
+					navigate("/findUser");
 				} else {
 					toast.error("Something went wrong. Please try again!");
 				}
@@ -208,31 +144,6 @@ function SiteAdmin({ user }) {
 							placeholder="Email"
 							defaultValue={updateEmail}
 							onChange={(e) => setUpdateEmail(e.target.value)}
-							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-						/>
-					</div>
-
-					{/* old password */}
-					<div className="flex flex-col w-full space-y-1">
-						<label>Old Password:</label>
-						<input
-							required
-							type="password"
-							name="old_password"
-							placeholder="Old password"
-							onChange={(e) => setOldPassword(e.target.value)}
-							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
-						/>
-					</div>
-
-					{/* password */}
-					<div className="flex flex-col w-full space-y-1">
-						<label>New Password:</label>
-						<input
-							type="password"
-							name="new_password"
-							placeholder="New password"
-							onChange={(e) => setNewPassword(e.target.value)}
 							className="border border-[#cc000021] rounded-md px-2 py-1 outline-none focus-visible:border-[#cc00004e]"
 						/>
 					</div>

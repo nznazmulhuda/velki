@@ -2,6 +2,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function MasterAgent({ user }) {
 	const [updateSuperAgentId, setUpdateSuperAgentId] = useState(
@@ -17,6 +18,7 @@ function MasterAgent({ user }) {
 	const [complainNumber, setComplainNumber] = useState(
 		user?.complain_number || "",
 	);
+	const navigate = useNavigate();
 
 	const update = (e) => {
 		e.preventDefault();
@@ -33,6 +35,7 @@ function MasterAgent({ user }) {
 			.then((res) => {
 				if (res.data.matchedCount > 0) {
 					toast.success("Sub Admin updated successfully!");
+					navigate("/findUser");
 				} else {
 					toast.error("Something went wrong. Please try again!");
 				}
@@ -46,6 +49,7 @@ function MasterAgent({ user }) {
 			.then((res) => {
 				if (res.data.deletedCount > 0) {
 					toast.success("Sub Admin deleted successfully!");
+					navigate("/findUser");
 				} else {
 					toast.error("Something went wrong. Please try again!");
 				}
